@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Portfolio de Charlotte Lohou — BUT MMI Création Numérique, Chargée de Communication & Community Manager"/>
+<title>Charlotte Lohou — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- FIXED UI -->
+<div id="prog"></div>
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+<div id="pctr" aria-hidden="true"><span class="n" id="pcn">01</span>&thinsp;/&thinsp;<span>08</span></div>
+
+<!-- SIDE DOTS -->
+<nav id="sdots" aria-hidden="true">
+  <button class="sd on" data-p="portfolio"><span class="sdl">Portfolio</span></button>
+  <button class="sd" data-p="communication"><span class="sdl">Communication</span></button>
+  <button class="sd" data-p="photographie"><span class="sdl">Photographie</span></button>
+  <button class="sd" data-p="programmation"><span class="sdl">Programmation</span></button>
+  <button class="sd" data-p="videos"><span class="sdl">Vidéos</span></button>
+  <button class="sd" data-p="articles"><span class="sdl">Articles</span></button>
+  <button class="sd" data-p="dessin"><span class="sdl">Dessin</span></button>
+  <button class="sd" data-p="contact"><span class="sdl">Contact</span></button>
+</nav>
+
+<!-- LIGHTBOX -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image agrandie" onclick="lbBg(event)">
+  <button id="lb-x" onclick="closeLb()" aria-label="Fermer (Échap)">✕</button>
+  <button id="lb-p" onclick="lbNav(-1);event.stopPropagation()" aria-label="Précédent (←)">‹</button>
+  <button id="lb-n" onclick="lbNav(1);event.stopPropagation()" aria-label="Suivant (→)">›</button>
+  <div id="lb-inner"></div>
+  <div id="lb-cap" aria-live="polite"></div>
+</div>
+
+<!-- NAVIGATION -->
+<nav id="mn" role="navigation" aria-label="Navigation principale">
+  <a class="nav-logo" href="#" onclick="go('portfolio');return false">Charlotte <span>Lohou</span></a>
+  <ul class="nav-links" role="list">
+    <li><a class="nav-a" href="#" id="nl-portfolio" onclick="go('portfolio');return false">Portfolio</a></li>
+    <li>
+      <button class="nav-btn" id="btn-comm" aria-haspopup="true" aria-expanded="false" onclick="toggleDD('dd-comm','btn-comm')">
+        Communication <span class="arr">▾</span>
+      </button>
+      <div class="dd" id="dd-comm" role="menu">
+        <a href="#" role="menuitem" onclick="go('communication');closeDD();return false">
+          <span class="dd-icon" style="background:#fce0e8">🖼</span>Affiches &amp; Campagne Iris
+        </a>
+        <a href="#" role="menuitem" onclick="go('communication');closeDD();return false">
+          <span class="dd-icon" style="background:#dff2e6">📄</span>Flyers, Newsletter, Print
+        </a>
+        <a href="#" role="menuitem" onclick="go('communication');closeDD();return false">
+          <span class="dd-icon" style="background:#fde8e0">📰</span>Articles &amp; Presse
+        </a>
+        <a href="#" role="menuitem" onclick="go('articles');closeDD();return false">
+          <span class="dd-icon" style="background:#fce8c0">✍</span>Articles de presse
+        </a>
+      </div>
+    </li>
+    <li>
+      <button class="nav-btn" id="btn-dev" aria-haspopup="true" aria-expanded="false" onclick="toggleDD('dd-dev','btn-dev')">
+        Développement <span class="arr">▾</span>
+      </button>
+      <div class="dd" id="dd-dev" role="menu">
+        <a href="#" role="menuitem" onclick="go('programmation');closeDD();return false">
+          <span class="dd-icon" style="background:#c8eef6">💻</span>Sites web
+        </a>
+        <a href="#" role="menuitem" onclick="go('programmation');closeDD();return false">
+          <span class="dd-icon" style="background:#c4f0e0">▶</span>Démos vidéo des sites
+        </a>
+      </div>
+    </li>
+    <li><a class="nav-a" href="#" id="nl-photographie" onclick="go('photographie');return false" data-fr="Photographie" data-en="Photography">Photographie</a></li>
+    <li><a class="nav-a" href="#" id="nl-videos" onclick="go('videos');return false" data-fr="Vidéos" data-en="Videos">Vidéos</a></li>
+    <li><a class="nav-a" href="#" id="nl-dessin" onclick="go('dessin');return false" data-fr="Dessin" data-en="Drawing">Dessin</a></li>
+    <li><a class="nav-a" href="#" id="nl-contact" onclick="go('contact');return false" data-fr="Contact" data-en="Contact">Contact</a></li>
+    <li>
+      <div class="nav-ctrls">
+        <button id="dktog" onclick="toggleDark()" aria-label="Mode sombre/clair"></button>
+        <div id="ltog" role="group" aria-label="Langue">
+          <button class="lo on" id="lo-fr" onclick="setLang('fr')" aria-pressed="true">FR</button>
+          <button class="lo" id="lo-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════ PORTFOLIO ═══════════════════════════════ -->
+<section id="portfolio" class="page on" aria-label="Portfolio — page d'accueil">
+  <div class="pgh">
+    <span class="ey">Portfolio 2025–2027</span>
+    <h1 class="ptitle">Charlotte <em>Lohou</em></h1>
+    <p class="lead">Étudiante en BUT MMI Création Numérique — communication visuelle, design graphique et marketing digital.</p>
+    <p class="body-txt">Ce portfolio rassemble mes créations académiques et personnelles depuis ma rentrée à l'IUT Clermont Auvergne (Le Puy-en-Velay) en 2025. Je me destine à un parcours <strong>Création Numérique, coloration communication visuelle et multimédia</strong>, avec pour objectif une alternance BUT 3 dans la communication et le marketing digital. Mon ambition : rejoindre une structure qui allie narration de marque, exigence graphique et impact digital.</p>
+  </div>
+
+  <!-- CV -->
+  <div class="cv-block">
+    <div>
+      <h3>📄 Mon CV — Français &amp; Anglais</h3>
+      <p>Chargée de communication &amp; Community Manager · BUT MMI Création Numérique · IUT Clermont Auvergne Le Puy-en-Velay · Disponible pour alternance BUT 3 en 2027.</p>
+    </div>
+    <a class="cv-dl" href="Livrables/cv-charlotte-lohou.pdf" target="_blank" aria-label="Télécharger le CV de Charlotte Lohou">📄 Télécharger le CV</a>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box"><div class="n">2007</div><div class="l">Née en — Génération Z</div></div>
+    <div class="stat-box"><div class="n">B2+</div><div class="l" data-fr="Anglais Cambridge" data-en="Cambridge English">Anglais Cambridge</div></div>
+    <div class="stat-box"><div class="n">5</div><div class="l" data-fr="Pays visités" data-en="Countries visited">Pays visités</div></div>
+    <div class="stat-box"><div class="n">2027</div><div class="l" data-fr="Objectif alternance" data-en="Work-study goal">Objectif alternance</div></div>
+  </div>
+
+  <!-- 1 SEULE PHOTO de présentation -->
+  <div class="portrait-wrap">
+    <div class="cell cover">
+      <img src="Images/port-01.jpg" alt="Charlotte Lohou — photo de présentation"/>
+    </div>
+  </div>
+
+  <!-- BIO -->
+  <div class="bio">
+    <div>
+      <h2>Qui suis-je ?</h2>
+      <span class="sub">BUT MMI · Création Numérique · Promo 2027 · Le Puy-en-Velay</span>
+      <p>Née en 2007, originaire d'Auvergne, j'étudie le <strong>BUT Métiers du Multimédia et de l'Internet, parcours Création Numérique</strong> à l'IUT Clermont Auvergne. J'ai obtenu mon baccalauréat général avec mention en 2025 au lycée La Chartreuse Paradis (Brives-Charensac), avec les spécialités <strong>LLCER Anglais</strong> et <strong>HGGSP</strong> en Terminale, <strong>HLP</strong> en Première et l'option Atelier Littéraire.</p>
+      <p>Mon BUT MMI alterne des <strong>périodes de Ressources</strong> (cours théoriques, ateliers techniques) et des <strong>SAÉ</strong> — Situations d'Apprentissage et d'Évaluation : des projets professionnels réels menés en équipe avec soutenance devant jury. C'est dans ce cadre que j'ai dirigé la campagne Iris, co-géré le journal Interface et conduit la campagne SPA Haute-Loire.</p>
+      <p>Je suis <strong>Cheffe du pôle Événementiel du BDE BUT MMI</strong> et <strong>Co-cheffe du pôle Graphisme du journal étudiant Interface</strong> (édition 2026) — direction artistique et mise en page sous Adobe InDesign. J'ai également géré le compte TikTok de l'association (stratégie éditoriale + production vidéo).</p>
+      <p>Je me tourne résolument vers la <strong>communication</strong> : stratégie de marque, direction artistique, community management, storytelling visuel. La technique est un outil, pas une fin — je code pour construire des expériences visuelles cohérentes.</p>
+      <p>Centres d'intérêt : photographie (paysage, iPhone), écriture créative, piano (13 ans), équitation (Galop 3).</p>
+      <div class="tags">
+        <span>Stratégie de communication</span><span>Direction artistique</span>
+        <span>Design graphique</span><span>Identité visuelle</span>
+        <span>Community management</span><span>Copywriting</span>
+        <span>Storytelling</span><span>Photographie</span>
+        <span>Montage vidéo</span><span>HTML / CSS</span><span>WordPress</span>
+        <span>Gestion de projet</span>
+      </div>
+      <div class="skills">
+        <div><div class="sk-r"><span>Design graphique (Canva, Figma, Adobe Illustrator)</span><span>90%</span></div><div class="sk-t"><div class="sk-f" style="--w:90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Design graphique 90%"></div></div></div>
+        <div><div class="sk-r"><span>Community management &amp; Réseaux sociaux</span><span>85%</span></div><div class="sk-t"><div class="sk-f" style="--w:85%"></div></div></div>
+        <div><div class="sk-r"><span>Photographie (iPhone + Lightroom Mobile)</span><span>82%</span></div><div class="sk-t"><div class="sk-f" style="--w:82%"></div></div></div>
+        <div><div class="sk-r"><span>HTML / CSS / WordPress (Elementor)</span><span>75%</span></div><div class="sk-t"><div class="sk-f" style="--w:75%"></div></div></div>
+        <div><div class="sk-r"><span>Montage vidéo (CapCut, Adobe Premiere Pro)</span><span>72%</span></div><div class="sk-t"><div class="sk-f" style="--w:72%"></div></div></div>
+        <div><div class="sk-r"><span>Anglais B2+ (Cambridge)</span><span>88%</span></div><div class="sk-t"><div class="sk-f" style="--w:88%"></div></div></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div><div class="sn">MMI</div><div class="sl">BUT Création Numérique · IUT Auvergne</div></div>
+      <div><div class="sn">2025</div><div class="sl">Bac général mention · LLCER, HLP, HGGSP</div></div>
+      <div><div class="sn">B2+</div><div class="sl">Anglais Cambridge · B1 Italien</div></div>
+      <div><div class="sn">5</div><div class="sl">Italie · Espagne · Malte · Portugal · Angleterre</div></div>
+      <div><div class="sn">2027</div><div class="sl">Objectif alternance Communication</div></div>
+    </div>
+  </div>
+
+  <div class="divl">✦</div>
+  <span class="se mint">Formation BUT MMI</span>
+  <h2 class="sh">Comment fonctionne ma formation ?</h2>
+  <div class="but-grid">
+    <div class="but-box"><h4>📚 Périodes de Ressources</h4><p>Cours théoriques et ateliers pratiques : design graphique, développement web, audiovisuel, marketing digital, gestion de projet, anglais professionnel. Ces ressources alimentent directement les projets en SAÉ.</p></div>
+    <div class="but-box" style="border-left-color:var(--lav)"><h4>🚀 SAÉ — Projets professionnels</h4><p>Projets en équipe sur commande réelle ou simulée : campagne Iris (SAÉ 202), campagne SPA (SAÉ 106), production audiovisuelle (SAÉ 104), présence en ligne (SAÉ 204). Chaque SAÉ se conclut par une soutenance devant jury.</p></div>
+    <div class="but-box" style="border-left-color:var(--rose)"><h4>🎨 Parcours Création Numérique</h4><p>Spécialité orientée communication visuelle et multimédia : identité visuelle, direction artistique, production audiovisuelle, UX/UI, stratégie digitale. Mon parcours choisi dès le BUT 1.</p></div>
+    <div class="but-box" style="border-left-color:var(--ochre)"><h4>🔄 Objectif BUT 3 : Alternance</h4><p>La 3e année s'effectue en alternance. Je cible des postes de Chargée de Communication, Community Manager ou Assistante Direction Artistique dans une agence, marque ou collectivité.</p></div>
+  </div>
+
+  <div class="divl">✦</div>
+  <span class="se sage">Parcours</span>
+  <h2 class="sh">Mon histoire</h2>
+  <div class="tl">
+    <div class="ti"><div class="ty">2022</div><div class="tc"><strong>Stage d'observation — IFMB, Brives-Charensac</strong><p>5 jours de découverte du monde médico-social. Premier contact avec la communication institutionnelle. <em>Projet personnel.</em></p></div></div>
+    <div class="ti"><div class="ty">2022–2025</div><div class="tc"><strong>Lycée La Chartreuse Paradis — Brives-Charensac</strong><p>Baccalauréat Général avec mention. Spécialités : LLCER Anglais (Tle), HGGSP (Tle), HLP (1re). Option : Atelier Littéraire. Cambridge B2+ obtenu en 2025.</p></div></div>
+    <div class="ti"><div class="ty">2025</div><div class="tc"><strong>Entrée en BUT MMI — IUT Clermont Auvergne, Le Puy-en-Velay</strong><p>Formation Création Numérique, coloration communication visuelle et multimédia. Outils : Canva, Figma, VS Code, WordPress, CapCut, Adobe Suite (Illustrator, InDesign, Premiere Pro).</p></div></div>
+    <div class="ti"><div class="ty">2025</div><div class="tc"><strong>BDE BUT MMI — Cheffe pôle Événements + Co-cheffe pôle Graphisme</strong><p>Organisation des événements étudiants. Gestion du compte TikTok (stratégie éditoriale + production vidéo). Co-direction artistique et mise en page du journal <em>Interface</em> (édition 2026) sous Adobe InDesign. <span class="cbadge a">Associatif</span></p></div></div>
+    <div class="ti"><div class="ty">2025–2026</div><div class="tc"><strong>SAÉ 101 — Audit de communication numérique Chanel</strong><p>Audit de la stratégie de communication numérique de Chanel. Analyse des canaux digitaux, benchmark concurrentiel, recommandations stratégiques. Équipe : Charlotte Lohou, Timéo Héritier, Loïs Royet. <span class="cbadge u">SAÉ 101 · Universitaire</span></p></div></div>
+    <div class="ti"><div class="ty">2025–2026</div><div class="tc"><strong>SAÉ 104 — Production audiovisuelle</strong><p>Réalisation d'interviews, d'un tutoriel vidéo et de contenus audiovisuels dans le cadre de la SAÉ 104. Tournage iPhone, montage CapCut. En équipe avec Adélie Hadjibeyan et Loane Besson. <span class="cbadge u">SAÉ 104 · Universitaire</span></p></div></div>
+    <div class="ti"><div class="ty">2025–2026</div><div class="tc"><strong>SAÉ 106 — Campagne SPA Haute-Loire « Les Noëls de la SPA »</strong><p>Cheffe de projet &amp; Community Manager. Direction d'une équipe de 5 sur une campagne numérique multicanale pour la SPA Haute-Loire : réseaux sociaux, affiches (Canva, Adobe Illustrator), vidéo (CapCut), micro-site. Objectifs : adoption responsable, dons, bénévoles. <span class="cbadge u">SAÉ 106 · Équipe de 5</span></p></div></div>
+    <div class="ti"><div class="ty">2025–2026</div><div class="tc"><strong>SAÉ 201 — Projet multimédia</strong><p>Projet multimédia réalisé avec Adélie Hadjibeyan. Conception et production d'un projet numérique complet. <span class="cbadge u">SAÉ 201 · Universitaire</span></p></div></div>
+    <div class="ti"><div class="ty">2026</div><div class="tc"><strong>SAÉ 202 — Campagne Iris · Afflelou × Essilor</strong><p>Cheffe de projet &amp; directrice créative. Campagne plurimédia inclusive complète : stratégie (SWOT, PESTEL, SMART, personas), identité visuelle (logo, charte graphique sous Adobe Illustrator + Canva), site WordPress bilingue, film promotionnel (script, tournage, montage Adobe Premiere Pro + CapCut), newsletter, flyers, dépliant, soutenance FR + EN devant jury en juin 2026. Équipe : Nahil Issad, Mathéo Lapierre, Tristan Mazelier. Supervisé par M. Courbon. <span class="cbadge u">SAÉ 202 · Équipe de 4</span></p></div></div>
+    <div class="ti"><div class="ty">2026</div><div class="tc"><strong>SAÉ 204 — Construire sa présence en ligne</strong><p>Personal branding et insertion professionnelle : CV FR/EN, lettre de motivation en réponse à une offre réelle, compte LinkedIn, création et gestion du compte Instagram de la gamme Iris <a href="https://www.instagram.com/gammeiris/" target="_blank" style="color:var(--rose)">@gammeiris</a>, book en ligne (ce portfolio). <span class="cbadge u">SAÉ 204 · Individuel</span></p></div></div>
+    <div class="ti"><div class="ty">2026</div><div class="tc"><strong>Journal Interface — Article publié en ligne</strong><p>Article sur la mode et l'émancipation féminine publié sur <a href="https://www.interface-media.com/1980-2026-la-mode-au-service-de-lemancipation/" target="_blank" style="color:var(--rose)">interface-media.com</a>. Co-direction artistique de l'édition 2026 du journal, disponible sur <a href="https://www.calameo.com/books/0051699394dd664a135ed" target="_blank" style="color:var(--rose)">Calaméo</a>. <span class="cbadge a">Associatif · BDE</span></p></div></div>
+    <div class="ti"><div class="ty">2027</div><div class="tc"><strong>Objectif : Alternance BUT 3 — Communication &amp; Marketing digital</strong><p>Recherche d'une alternance pour ma 3e année de BUT, parcours Création Numérique. Postes visés : Chargée de Communication, Community Manager, Assistante Direction Artistique.</p></div></div>
+  </div>
+
+  <div class="cb rose">
+    <p>« Je cherche toujours le détail qui fait la différence — dans un cadrage, un mot ou une couleur. »</p>
+    <span class="cbtag">Charlotte Lohou · Création Numérique · Promo 2027</span>
+  </div>
+
+  <div class="mq" aria-hidden="true">
+    <div class="mqi">
+      <span>Communication Visuelle</span><span>Direction Artistique</span><span>BUT MMI · 2027</span>
+      <span>Community Management</span><span>Photographie</span><span>Design Graphique</span>
+      <span>Création Numérique</span><span>Le Puy-en-Velay</span>
+      <span>Communication Visuelle</span><span>Direction Artistique</span><span>BUT MMI · 2027</span>
+      <span>Community Management</span><span>Photographie</span><span>Design Graphique</span>
+      <span>Création Numérique</span><span>Le Puy-en-Velay</span>
+    </div>
+  </div>
+
+  <div class="pnav"><div></div>
+    <button class="pnb r" onclick="go('communication')"><span class="pnl">Page suivante</span><span class="pnt" data-fr="Communication →" data-en="Communication →">Communication →</span></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ COMMUNICATION ═══════════════════════════ -->
+<section id="communication" class="page" aria-label="Communication — Affiches, flyers, moodboards">
+  <div class="pgh">
+    <span class="ey rose">SAÉ 202 · SAÉ 106 · SAÉ 101 · BDE</span>
+    <h1 class="ptitle"><em>Communication</em></h1>
+    <p class="lead">Campagnes visuelles, affiches, flyers, newsletters et moodboards — mes créations de communication.</p>
+    <p class="body-txt">Cette section regroupe mes productions graphiques et communicationnelles. Le projet central est la <strong>campagne Iris</strong> (Afflelou × Essilor, SAÉ 202) : j'ai assuré la <strong>direction créative complète</strong> — stratégie, identité visuelle, copywriting, tournage et mise en page. Logiciels principaux : <strong>Canva, Adobe Illustrator, Figma, Adobe InDesign, Adobe Premiere Pro, CapCut</strong>.</p>
+  </div>
+
+  <!-- Journal Interface -->
+  <div class="cb ochre">
+    <p>Co-cheffe du pôle Graphisme — Journal <em>Interface</em> édition 2026</p>
+    <span class="cbtag">Direction artistique · Adobe InDesign · BDE BUT MMI</span>
+  </div>
+  <div class="igrid">
+    <div class="ibox" style="border-left-color:var(--ochre)">
+      <h4>📓 Journal Interface — Édition 2026</h4>
+      <p>Co-direction artistique et coordination du pôle graphisme du journal étudiant <em>Interface</em>. Mise en page complète sous <strong>Adobe InDesign</strong>, cohérence visuelle sur toute la publication, collaboration avec les pôles rédaction et communication. Article personnel publié en ligne : « 1980–2026 : la mode au service de l'émancipation ».</p>
+      <div class="interface-links">
+        <a class="ilink" href="https://www.calameo.com/books/0051699394dd664a135ed" target="_blank" aria-label="Voir le journal Interface sur Calaméo">📖 Voir le journal sur Calaméo</a>
+        <a class="ilink lav" href="https://www.interface-media.com/1980-2026-la-mode-au-service-de-lemancipation/" target="_blank" aria-label="Lire l'article sur interface-media.com">✍ Mon article — Interface Media</a>
+      </div>
+    </div>
+    <div class="ibox" style="border-left-color:var(--lav)">
+      <h4>🎨 Rôle éditorial &amp; graphique</h4>
+      <p>Direction artistique de la mise en page, sélection typographique, cohérence des couleurs, coordination avec la rédaction. Logiciels : <strong>Adobe InDesign, Canva, Figma</strong>. Publication physique et en ligne sur Calaméo.</p>
+      <div class="logi"><span class="e">Adobe InDesign</span><span>Canva</span><span class="b">Figma</span></div>
+    </div>
+  </div>
+
+  <div class="divl">✦</div>
+
+  <!-- Livrables PDF -->
+  <span class="se ochre">Livrables SAÉ — Documents téléchargeables</span>
+  <h2 class="sh">Dossiers &amp; Livrables officiels</h2>
+  <p class="sp">Les dossiers officiels produits dans le cadre de mes SAÉ et projets universitaires.</p>
+  <div class="livr-grid">
+    <div class="livr-card">
+      <h4>📊 Audit Chanel — SAÉ 101</h4>
+      <p>Audit de la stratégie de communication numérique de Chanel. Analyse des canaux digitaux, benchmark concurrentiel, recommandations. Équipe : Charlotte Lohou, Timéo Héritier, Loïs Royet.</p>
+      <span class="livr-badge cbadge u">SAÉ 101 · Équipe de 3</span><br><br>
+      <a class="dl-btn rose" href="Livrables/sae101-audit-chanel.pdf" target="_blank" aria-label="Télécharger l'audit Chanel SAÉ 101">📄 Télécharger</a>
+    </div>
+    <div class="livr-card">
+      <h4>🎬 Livrable SAÉ 104 — Audiovisuel</h4>
+      <p>Dossier de production audiovisuelle : interviews, tutoriel vidéo, réalisation technique. iPhone, CapCut. En équipe avec Adélie Hadjibeyan.</p>
+      <span class="livr-badge cbadge u">SAÉ 104 · Universitaire</span><br><br>
+      <a class="dl-btn teal" href="Livrables/sae104-livrable.pdf" target="_blank" aria-label="Télécharger le livrable SAÉ 104">📄 Télécharger</a>
+    </div>
+    <div class="livr-card">
+      <h4>🐾 Campagne SPA — SAÉ 106</h4>
+      <p>Dossier complet de la campagne « Les Noëls de la SPA » : stratégie multicanale, affiches, vidéo, micro-site, storytelling. Cheffe de projet, équipe de 5.</p>
+      <span class="livr-badge cbadge u">SAÉ 106 · Cheffe de projet</span><br><br>
+      <a class="dl-btn sage" href="Livrables/sae106-spa.pdf" target="_blank" aria-label="Télécharger le livrable SAÉ 106 SPA">📄 Télécharger</a>
+    </div>
+    <div class="livr-card">
+      <h4>🎨 SAÉ 201 — Projet multimédia</h4>
+      <p>Projet multimédia réalisé avec Adélie Hadjibeyan. Conception et production numérique complète.</p>
+      <span class="livr-badge cbadge u">SAÉ 201 · Équipe</span><br><br>
+      <a class="dl-btn lav" href="Livrables/sae201-livrable.pdf" target="_blank" aria-label="Télécharger le livrable SAÉ 201">📄 Télécharger</a>
+    </div>
+    <div class="livr-card">
+      <h4>🌸 Campagne Iris — SAÉ 202 Phase 1</h4>
+      <p>Premier livrable de la campagne Iris Innovation : stratégie de communication (SWOT, PESTEL, SMART, personas), identité visuelle, charte graphique. Équipe de 4, direction créative.</p>
+      <span class="livr-badge cbadge u">SAÉ 202 · Phase 1 · Cheffe de projet</span><br><br>
+      <a class="dl-btn rose" href="Livrables/sae202-iris.pdf" target="_blank" aria-label="Télécharger le livrable SAÉ 202 Iris phase 1">📄 Télécharger</a>
+    </div>
+    <div class="livr-card">
+      <h4>🌸 Campagne Iris — SAÉ 202 Phase 2</h4>
+      <p>Deuxième livrable : déploiement de la campagne (11 affiches, 6 affiches thématiques, site WordPress bilingue, film promotionnel FR+EN, newsletter, flyers, mock-ups, dépliant). Soutenance FR+EN devant jury, juin 2026.</p>
+      <span class="livr-badge cbadge u">SAÉ 202 · Phase 2 · Cheffe de projet</span><br><br>
+      <a class="dl-btn rose" href="Livrables/sae202-iris-phase2.pdf" target="_blank" aria-label="Télécharger le livrable SAÉ 202 Iris phase 2">📄 Télécharger</a>
+    </div>
+    <div class="livr-card">
+      <h4>⬟ Logo D'JAMS</h4>
+      <p>Création du logo D'JAMS en collaboration avec Timéo Héritier. Conception graphique sous Adobe Illustrator et mise en page sous InDesign.</p>
+      <span class="livr-badge cbadge t">Projet graphique · Collaboratif</span><br><br>
+      <a class="dl-btn mint" href="Livrables/logo-djams.pdf" target="_blank" aria-label="Télécharger le livrable Logo D'JAMS">📄 Télécharger</a>
+    </div>
+    <div class="livr-card">
+      <h4>📷 Instagram — @gammeiris</h4>
+      <p>Création et gestion du compte Instagram officiel de la gamme Iris Innovation dans le cadre de la SAÉ 204. Stratégie éditoriale, contenus visuels, publications.</p>
+      <span class="livr-badge cbadge u">SAÉ 204 · Community Management</span><br><br>
+      <a class="dl-btn sky" href="https://www.instagram.com/gammeiris/" target="_blank" aria-label="Voir le compte Instagram Gamme Iris">📷 @gammeiris</a>
+    </div>
+  </div>
+
+  <div class="divl">✦</div>
+  <span class="se rose">SAÉ 202 — Campagne Iris Innovation <span class="cbadge u" style="margin-left:8px">Universitaire · Équipe de 4</span></span>
+  <h2 class="sh">Affiches de la gamme Iris</h2>
+  <p class="sp">11 affiches déclinant chaque handicap visuel ou sensoriel de la gamme Iris Innovation. Réalisées sur <strong>Canva et Adobe Illustrator</strong>. Clique pour agrandir.</p>
+  <div class="igrid" style="margin-bottom:24px">
+    <div class="ibox"><h4>🎯 Mon rôle</h4><p>Direction créative · Copywriting · Direction de tournage · Mise en page affiches · Dossier stratégique (SWOT, PESTEL, SMART, personas) · Site WordPress bilingue · Film FR+EN · Deux soutenances orales devant jury — juin 2026</p><div class="logi"><span>Canva</span><span class="b">Figma</span><span class="e">Adobe Illustrator</span><span class="d">WordPress</span><span class="f">CapCut</span><span class="e">Adobe Premiere Pro</span><span class="g">Trello</span><span class="g">Gantt</span></div></div>
+    <div class="ibox" style="border-left-color:var(--lav)"><h4>👥 Équipe</h4><p>Nahil Issad · Mathéo Lapierre · Tristan Mazelier<br>Supervisé par M. Courbon · Soutenance FR+EN — juin 2026<br><em>Tagline : « Voir n'est plus un privilège. »</em></p></div>
+  </div>
+  <div class="pgrid sg">
+    <div class="cell"><img src="Images/iris-gamme.jpg" alt="Affiche Iris Gamme — vue d'ensemble"/><div class="cap">Iris Gamme — Vue d'ensemble</div></div>
+    <div class="cell"><img src="Images/iris-chroma.jpg" alt="Affiche Iris Chroma — Daltonisme"/><div class="cap">Iris Chroma — Daltonisme</div></div>
+    <div class="cell"><img src="Images/iris-lecture.jpg" alt="Affiche Iris Lecture — Dyslexie"/><div class="cap">Iris Lecture — Dyslexie</div></div>
+    <div class="cell"><img src="Images/iris-relief.jpg" alt="Affiche Iris Relief — Basse Vision DMLA"/><div class="cap">Iris Relief — Basse Vision / DMLA</div></div>
+    <div class="cell"><img src="Images/iris-memoire.jpg" alt="Affiche Iris Mémoire — Alzheimer"/><div class="cap">Iris Mémoire — Alzheimer</div></div>
+    <div class="cell"><img src="Images/iris-calme.jpg" alt="Affiche Iris Calme — Autisme Hypersensibilité"/><div class="cap">Iris Calme — Autisme / Hypersensibilité</div></div>
+    <div class="cell"><img src="Images/iris-echo.jpg" alt="Affiche Iris Echo — Surdité"/><div class="cap">Iris Echo — Surdité</div></div>
+    <div class="cell"><img src="Images/iris-vol.jpg" alt="Affiche Iris Vol — Cécité nocturne"/><div class="cap">Iris Vol — Cécité nocturne</div></div>
+    <div class="cell"><img src="Images/iris-repere.jpg" alt="Affiche Iris Repère — Cécité"/><div class="cap">Iris Repère — Cécité</div></div>
+    <div class="cell"><img src="Images/iris-geste.jpg" alt="Affiche Iris Geste — Langue des Signes"/><div class="cap">Iris Geste — LSF</div></div>
+    <div class="cell"><img src="Images/iris-tremens.jpg" alt="Affiche Iris Tremens — Parkinson"/><div class="cap">Iris Tremens — Parkinson</div></div>
+  </div>
+  <p class="img-caption">11 affiches produits · Canva + Adobe Illustrator · SAÉ 202 · Équipe de 4 · 2026</p>
+  <div style="max-width:320px;margin-top:14px">
+    <div class="cell r23"><img src="Images/el-condor.jpg" alt="Affiche El Cóndor — Coming Soon"/><div class="cap">El Cóndor — Coming Soon 11/09/2024</div></div>
+  </div>
+  <p class="img-caption">El Cóndor — Affiche événementielle · Canva · Projet personnel</p>
+
+  <div class="cb dark">
+    <p>« Voir n'est plus un privilège. »</p>
+    <span class="cbtag">Tagline · Campagne Iris Innovation · SAÉ 202 · 2026</span>
+  </div>
+
+  <span class="se lav">Affiches thématiques de mise en situation</span>
+  <h2 class="sh">Affiches thématiques — Iris</h2>
+  <p class="sp">6 affiches thématiques illustrant les usages de la gamme Iris. Ce sont des <strong>affiches de mise en situation</strong> (visuels fixes), pas des films. Tournées au Jardin Henry Vinay, Le Puy-en-Velay, puis mises en page sur <strong>Canva et Adobe Illustrator</strong>.</p>
+  <div class="g3 sg">
+    <div class="cell r43"><img src="Images/film-privilege.jpg" alt="Affiche thématique Iris — Et si voir n'était plus un privilège ?"/><div class="cap">Et si voir n'était plus un privilège ?</div></div>
+    <div class="cell r43"><img src="Images/film-lire.jpg" alt="Affiche thématique Iris — Lire"/><div class="cap">Lire</div></div>
+    <div class="cell r43"><img src="Images/film-marcher.jpg" alt="Affiche thématique Iris — Marcher"/><div class="cap">Marcher</div></div>
+    <div class="cell r43"><img src="Images/film-croiser.jpg" alt="Affiche thématique Iris — Croiser"/><div class="cap">Croiser</div></div>
+    <div class="cell r43"><img src="Images/film-entendre.jpg" alt="Affiche thématique Iris — Entendre"/><div class="cap">Entendre</div></div>
+    <div class="cell r43"><img src="Images/film-revivre.jpg" alt="Affiche thématique Iris — Revivre"/><div class="cap">Revivre</div></div>
+  </div>
+  <p class="img-caption">6 affiches thématiques de mise en situation · Canva + Adobe Illustrator · Jardin Henry Vinay, Le Puy-en-Velay · SAÉ 202</p>
+
+  <div class="divl">✦</div>
+  <span class="se lav">Mock-ups urbains</span>
+  <h2 class="sh">Les affiches Iris en contexte</h2>
+  <p class="sp">Les affiches Iris déclinées sur des supports urbains réels : abribus, vitrine, rue. Canva &amp; Figma.</p>
+  <div class="g3 sg">
+    <div class="cell r43"><img src="Images/mock-abribus1.jpg" alt="Mock-up abribus nocturne 1"/></div>
+    <div class="cell r43"><img src="Images/mock-abribus2.jpg" alt="Mock-up abribus nocturne 2"/></div>
+    <div class="cell r43"><img src="Images/mock-cadre.jpg" alt="Mock-up cadre doré"/></div>
+    <div class="cell r43"><img src="Images/mock-rue.jpg" alt="Mock-up rue passants"/></div>
+  </div>
+  <p class="img-caption">Mock-ups de mise en situation · Canva + Figma · SAÉ 202</p>
+
+  <div class="divl">✦</div>
+  <span class="se sky">Print</span>
+  <h2 class="sh">Print de mise en situation</h2>
+  <div class="g3 sg">
+    <div class="cell r43"><img src="Images/print-01.jpg" alt="Print Iris 1"/></div>
+    <div class="cell r43"><img src="Images/print-02.jpg" alt="Print Iris 2"/></div>
+    <div class="cell r43"><img src="Images/print-03.jpg" alt="Print Iris 3"/></div>
+  </div>
+  <p class="img-caption">Print lifestyle · Canva · SAÉ 202</p>
+
+  <div class="divl">✦</div>
+  <span class="se peach">Flyers &amp; Newsletter</span>
+  <h2 class="sh">Flyers</h2>
+  <div class="g2 sg">
+    <div class="cell r43"><img src="Images/flyers.jpg" alt="Flyer 1"/></div>
+    <div class="cell r43"><img src="Images/flyers1.jpg" alt="Flyer 2"/></div>
+  </div>
+  <p class="img-caption">Flyers · Canva · Projet universitaire</p>
+  <div style="max-width:500px;margin-top:20px">
+    <div class="cell r43"><img src="Images/newsletter.jpg" alt="Newsletter Iris Innovation"/></div>
+  </div>
+  <p class="img-caption">Newsletter Iris Innovation · Canva · SAÉ 202</p>
+
+  <div class="divl">✦</div>
+  <span class="se teal">Moodboards</span>
+  <h2 class="sh">Moodboards &amp; Identité visuelle</h2>
+  <div class="g3 sg">
+    <div class="card"><div class="cell r43"><img src="Images/mood-iris.jpg" alt="Moodboard Iris"/></div><div class="cm"><span class="ct">SAÉ 202 · Direction artistique</span><p class="cv2">Moodboard Iris Innovation</p><p class="cs2">Palette, typographies, univers visuels. Figma + Pinterest.</p><span class="cbadge u">Universitaire</span></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mood-thepitt.jpg" alt="Moodboard The Pitt"/></div><div class="cm"><span class="ct">TD2 · Identité visuelle</span><p class="cv2">THE PIT — Restaurant punk fictif</p><p class="cs2">Logo, charte couleurs, typographies, flyers. Canva, Word, PDF.</p><span class="cbadge u">Universitaire · TD2</span></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mood-interface.jpg" alt="Journal Interface"/></div><div class="cm"><span class="ct">BDE BUT MMI · Pôle Graphisme</span><p class="cv2">Journal Interface — Édition 2026</p><p class="cs2">Co-direction artistique. Mise en page Adobe InDesign.</p><span class="cbadge a">Associatif · BDE</span></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mood-site.jpg" alt="Moodboard site web"/></div><div class="cm"><span class="ct">SAÉ 202 · Web</span><p class="cv2">Moodboard site web Iris</p><span class="cbadge u">Universitaire</span></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mood-sommaire.jpg" alt="Sommaire"/></div><div class="cm"><span class="ct">Éditorial</span><p class="cv2">Sommaire éditorial</p><span class="cbadge u">Universitaire</span></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mood-icones.jpg" alt="Icônes graphiques"/></div><div class="cm"><span class="ct">Graphisme · Système visuel</span><p class="cv2">Icônes &amp; éléments graphiques</p><span class="cbadge u">Universitaire</span></div></div>
+  </div>
+
+  <div class="divl">✦</div>
+  <span class="se ochre">Cartes mentales &amp; Infographies</span>
+  <h2 class="sh">Cartes mentales — HGGSP &amp; SVT</h2>
+  <p class="sp">Synthèses visuelles produites en Terminale pour HGGSP et SVT. Réalisées sur <strong>Canva</strong>. <span class="cbadge p">Scolaire · Terminale</span></p>
+  <div class="g3 sg">
+    <div class="card"><div class="cell r43"><img src="Images/mm-cristal.jpg" alt="Nuit de Cristal"/></div><div class="cm"><span class="ct">HGGSP T7</span><p class="cv2">La Nuit de Cristal</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-2GM.jpg" alt="2e Guerre Mondiale"/></div><div class="cm"><span class="ct">HGGSP · Histoire</span><p class="cv2">La Seconde Guerre Mondiale</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-huns.jpg" alt="Empire Hunnique"/></div><div class="cm"><span class="ct">Histoire ancienne</span><p class="cv2">L'Empire Hunnique</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/albedo.jpg" alt="Albedo terrestre"/></div><div class="cm"><span class="ct">SVT T2</span><p class="cv2">L'Albedo Terrestre</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-ia.jpg" alt="IA"/></div><div class="cm"><span class="ct">HGGSP · IA</span><p class="cv2">Avancées récentes en IA</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-bassin.jpg" alt="Bassin minier"/></div><div class="cm"><span class="ct">HGGSP · Patrimoine</span><p class="cv2">Bassin minier Nord Pas-de-Calais</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-braindrain.jpg" alt="Brain Drain"/></div><div class="cm"><span class="ct">HGGSP · Économie</span><p class="cv2">Brain Drain</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-alphabetisation.jpg" alt="Alphabétisation féminine"/></div><div class="cm"><span class="ct">HGGSP · Genre</span><p class="cv2">Alphabétisation féminine</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/melanine.jpg" alt="Soleil SVT"/></div><div class="cm"><span class="ct">SVT</span><p class="cv2">Bienfaits &amp; dangers du Soleil</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-lycee.jpg" alt="Lycée en France"/></div><div class="cm"><span class="ct">Éducation</span><p class="cv2">Le Lycée en France</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/mm-quebec.jpg" alt="École au Québec"/></div><div class="cm"><span class="ct">Éducation comparée</span><p class="cv2">École à Québec</p></div></div>
+  </div>
+
+  <div class="pnav">
+    <button class="pnb" onclick="go('portfolio')"><span class="pnl">Précédent</span><span class="pnt" data-fr="← Portfolio" data-en="← Portfolio">← Portfolio</span></button>
+    <button class="pnb r" onclick="go('photographie')"><span class="pnl">Suivant</span><span class="pnt">Photographie →</span></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PHOTOGRAPHIE ═══════════════════════════ -->
+<section id="photographie" class="page" aria-label="Photographie personnelle">
+  <div class="pgh">
+    <span class="ey teal">Photographie personnelle · iPhone</span>
+    <h1 class="ptitle"><em>Photographie</em></h1>
+    <p class="lead">Instants captés au fil des saisons et des voyages — exclusivement à l'iPhone, sans filtre excessif.</p>
+    <p class="body-txt">Photos <strong>personnelles</strong> — elles ne font pas partie de projets universitaires mais illustrent ma sensibilité visuelle. Je photographie en voyage et en balade avec mon <strong>iPhone</strong>, post-traitement léger sur <strong>Lightroom Mobile</strong>. Cliquez sur n'importe quelle photo pour l'agrandir.</p>
+  </div>
+  <div class="cb teal"><p>5 pays, des centaines de photos, un seul regard.</p><span class="cbtag">iPhone · Lightroom Mobile · Personnel · 2022–2026</span></div>
+
+  <div class="psec france"><h3><span class="dot"></span>France</h3>
+    <div class="g3 sg" style="margin-bottom:12px">
+      <div class="cell r43"><img src="Images/tennis.jpg" alt="Court rouge et palmiers"/></div>
+      <div class="cell r43"><img src="Images/palmier.jpg" alt="Grande roue et palmiers"/></div>
+      <div class="cell r43"><img src="Images/piscine.jpg" alt="Coucher de soleil piscine"/></div>
+      <div class="cell r43"><img src="Images/miss.jpg" alt="Fête médiévale"/></div>
+      <div class="cell r43"><img src="Images/granderoue.jpg" alt="Grande roue nocturne"/></div>
+      <div class="cell r43"><img src="Images/fleurrose.jpg" alt="Fleurs roses"/></div>
+    </div>
+    <div class="g3 sg" style="margin-bottom:12px">
+      <div class="cell r43"><img src="Images/parapluie.JPG" alt="Parapluies colorés"/></div>
+      <div class="cell r43"><img src="Images/far.jpg" alt="Grande roue illuminée"/></div>
+      <div class="cell r43"><img src="Images/fleur.jpg" alt="Fleurs fuchsias"/></div>
+      <div class="cell r43"><img src="Images/fleur2.jpg" alt="Fleurs roses et violettes"/></div>
+      <div class="cell r43"><img src="Images/iris.jpg" alt="Iris au crépuscule"/></div>
+      <div class="cell r43"><img src="Images/dalia.jpg" alt="Dahlias"/></div>
+    </div>
+    <div class="g3 sg" style="margin-bottom:12px">
+      <div class="cell r43"><img src="Images/fleur3.jpg" alt="Glycines"/></div>
+      <div class="cell r43"><img src="Images/fleur4.jpg" alt="Glycine macro"/></div>
+      <div class="cell r43"><img src="Images/fleur5.JPG" alt="Glycine branche"/></div>
+      <div class="cell r43"><img src="Images/feu.jpg" alt="Flamme nocturne"/></div>
+      <div class="cell r43"><img src="Images/rouge.jpg" alt="Cathédrale éclairée en rose"/></div>
+      <div class="cell r43"><img src="Images/roseetbleu.jpg" alt="Cathédrale éclairée en teal"/></div>
+    </div>
+    <div class="g3 sg">
+      <div class="cell r43"><img src="Images/statue.jpg" alt="Statue cathédrale"/></div>
+      <div class="cell r43"><img src="Images/roseetviolet.jpg" alt="Grille cathédrale violette"/></div>
+      <div class="cell r43"><img src="Images/violetetrouge.jpg" alt="Orgue cathédrale bleu"/></div>
+      <div class="cell r43"><img src="Images/java.jpg" alt="Campanule coucher de soleil"/></div>
+      <div class="cell r43"><img src="Images/bleuetbleu.jpg" alt="Rivière arbres fleuris"/></div>
+      <div class="cell r43"><img src="Images/chat.jpg" alt="Chat siamois succulentes"/></div>
+      <div class="cell r43"><img src="Images/concert.JPG" alt="Concert lumières rouges"/></div>
+      <div class="cell r43"><img src="Images/concert1.JPG" alt="Concert lumières vertes"/></div>
+      <div class="cell r43"><img src="Images/ciel.jpg" alt="Ciel et feuilles"/></div>
+      <div class="cell r43"><img src="Images/feuille.jpg" alt="Feuilles ciel bleu"/></div>
+      <div class="cell r43"><img src="Images/blanc.jpg" alt="Fleur blanche"/></div>
+      <div class="cell r43"><img src="Images/tableau.jpg" alt="Tableau Van Gogh exposition"/></div>
+      <div class="cell r43"><img src="Images/fleur6.jpg" alt="Fleur 6"/></div>
+    </div>
+    <p class="img-caption">France · iPhone · Lightroom Mobile · Personnel · 2022–2026</p>
+  </div>
+
+  <div class="divl">✦</div>
+  <div class="psec italie"><h3><span class="dot"></span>Italie</h3>
+    <div class="g3 sg">
+      <div class="cell r43"><img src="Images/voiture.jpg" alt="Lego voiture rouge"/></div>
+      <div class="cell r43"><img src="Images/lion.jpg" alt="Lego lion"/></div>
+      <div class="cell r43"><img src="Images/batiment.jpg" alt="Horloge Bologne"/></div>
+      <div class="cell r43"><img src="Images/place.jpg" alt="Colonnade Bologne"/></div>
+      <div class="cell r43"><img src="Images/gucci.jpg" alt="Vitrine Gucci"/></div>
+      <div class="cell r43"><img src="Images/stlaurent.jpg" alt="Vitrine Saint Laurent"/></div>
+      <div class="cell r43"><img src="Images/jaune.jpg" alt="Maison jaune architecture"/></div>
+      <div class="cell r43"><img src="Images/ferrari.jpg" alt="Ferrari rouge musée"/></div>
+    </div>
+    <p class="img-caption">Italie · iPhone · Lightroom Mobile · Personnel</p>
+  </div>
+
+  <div class="divl">✦</div>
+  <div class="psec uk"><h3><span class="dot"></span>Angleterre</h3>
+    <div class="g3 sg">
+      <div class="cell r43"><img src="Images/garde.JPG" alt="Royal Horse Guard"/></div>
+      <div class="cell r43"><img src="Images/lune.jpg" alt="Pleine lune nocturne"/></div>
+      <div class="cell r43"><img src="Images/tour.JPG" alt="Big Ben journée"/></div>
+      <div class="cell r43"><img src="Images/abbey.JPG" alt="Westminster Abbey"/></div>
+      <div class="cell r43"><img src="Images/portail.jpg" alt="Réverbères dorés"/></div>
+      <div class="cell r43"><img src="Images/cheval.JPG" alt="Police montée Hyde Park"/></div>
+      <div class="cell r43"><img src="Images/tag.jpg" alt="Street art visage"/></div>
+      <div class="cell r43"><img src="Images/coucherdesoleil.jpg" alt="Big Ben coucher de soleil Tamise"/></div>
+      <div class="cell r43"><img src="Images/tableaubateau.jpg" alt="Tableau musée naval"/></div>
+      <div class="cell r43"><img src="Images/nirvana.jpg" alt="Vinyle Nirvana"/></div>
+      <div class="cell r43"><img src="Images/londoneye.jpg" alt="London Eye sphère nocturne"/></div>
+      <div class="cell r43"><img src="Images/moon.JPG" alt="Big Ben de nuit"/></div>
+    </div>
+    <p class="img-caption">Angleterre · iPhone · Lightroom Mobile · Personnel</p>
+  </div>
+
+  <div class="divl">✦</div>
+  <div class="psec malte"><h3><span class="dot"></span>Malte</h3>
+    <div class="g3 sg">
+      <div class="cell r43"><img src="Images/placemalte.JPG" alt="Place Valletta colonnes"/></div>
+      <div class="cell r43"><img src="Images/horloge.JPG" alt="Horloge murale Malte"/></div>
+      <div class="cell r43"><img src="Images/batimentmaltebeau.jpg" alt="Architecture Malte"/></div>
+      <div class="cell r43"><img src="Images/arbremalte.jpg" alt="Arbre ciel bleu Malte"/></div>
+      <div class="cell r43"><img src="Images/cielmalte.jpg" alt="Clocher palmiers Malte"/></div>
+      <div class="cell r43"><img src="Images/mer.jpg" alt="Port nocturne Malte"/></div>
+      <div class="cell r43"><img src="Images/bateaunuit.jpg" alt="Voilier port nocturne"/></div>
+      <div class="cell r43"><img src="Images/feuartifice.jpg" alt="Feux d'artifice roses"/></div>
+      <div class="cell r43"><img src="Images/eaufontaine.jpg" alt="Port illuminé de nuit"/></div>
+      <div class="cell r43"><img src="Images/drapeaumalte.jpg" alt="Drapeau maltais église"/></div>
+      <div class="cell r43"><img src="Images/orangephoto.jpg" alt="Grenadier Malte"/></div>
+      <div class="cell r43"><img src="Images/fontaine.jpg" alt="Fontaine sculptures"/></div>
+      <div class="cell r43"><img src="Images/rosefleurbelle.jpg" alt="Rose belle Malte"/></div>
+    </div>
+    <p class="img-caption">Malte · iPhone · Lightroom Mobile · Personnel</p>
+  </div>
+
+  <div class="divl">✦</div>
+  <div class="psec portugal"><h3><span class="dot"></span>Portugal</h3>
+    <div class="g3 sg">
+      <div class="cell r43"><img src="Images/dauphin.jpg" alt="Dauphin océan Atlantique"/></div>
+      <div class="cell r43"><img src="Images/merportugal.jpg" alt="Falaises blanches Algarve"/></div>
+      <div class="cell r43"><img src="Images/grotte.jpg" alt="Grotte de Benagil"/></div>
+      <div class="cell r43"><img src="Images/troue.jpg" alt="Falaise ocre percée"/></div>
+      <div class="cell r43"><img src="Images/trouportugal.jpg" alt="Arche rocheuse turquoise"/></div>
+      <div class="cell r43"><img src="Images/fleurbleuportugal.jpg" alt="Fleur bleue Portugal"/></div>
+      <div class="cell r43"><img src="Images/cascade.jpg" alt="Panorama falaises Algarve"/></div>
+      <div class="cell r43"><img src="Images/cascade1.jpg" alt="Sentier falaise orange"/></div>
+      <div class="cell r43"><img src="Images/cascade2.jpg" alt="Rochers coucher de soleil"/></div>
+      <div class="cell r43"><img src="Images/cascade3.jpg" alt="Arches à marée basse"/></div>
+      <div class="cell r43"><img src="Images/fleurvioletteportugal.jpg" alt="Fleur rose mauve Portugal"/></div>
+      <div class="cell r43"><img src="Images/fleurjauneportugal.jpg" alt="Gerbera jaune verre"/></div>
+      <div class="cell r43"><img src="Images/lustre.jpg" alt="Hall hôtel lustre"/></div>
+      <div class="cell r43"><img src="Images/patiserie.jpg" alt="Viennoiseries boulangerie"/></div>
+    </div>
+    <p class="img-caption">Portugal · iPhone · Lightroom Mobile · Personnel</p>
+  </div>
+
+  <div class="pnav">
+    <button class="pnb" onclick="go('communication')"><span class="pnl">Précédent</span><span class="pnt">← Communication</span></button>
+    <button class="pnb r" onclick="go('programmation')"><span class="pnl">Suivant</span><span class="pnt">Programmation →</span></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PROGRAMMATION ═══════════════════════════ -->
+<section id="programmation" class="page" aria-label="Développement web">
+  <div class="pgh">
+    <span class="ey mint">Développement web · BUT MMI</span>
+    <h1 class="ptitle"><em>Programmation</em></h1>
+    <p class="lead">Sites web, interfaces interactives et intégrations HTML/CSS/PHP réalisées en 1re année de BUT MMI.</p>
+    <p class="body-txt">J'ai appris à concevoir des sites web de A à Z : maquette <strong>Figma</strong>, intégration <strong>HTML5/CSS3</strong>, gestion des contenus responsive. J'ai découvert <strong>PHP</strong> et <strong>MySQL</strong> pour le projet Roméo &amp; Juliette, et <strong>WordPress/Elementor</strong> pour le site Iris. Pour moi, le code est au service du design. Tous ces projets sont <strong>universitaires</strong>, réalisés en 1re année de BUT.</p>
+  </div>
+  <div class="cb mint"><p>Le code, c'est du design avec de la syntaxe.</p><span class="cbtag">HTML5 · CSS3 · PHP · WordPress · Figma · MySQL · VS Code</span></div>
+  <div class="igrid">
+    <div class="ibox" style="border-left-color:var(--mint)"><h4>🛠️ Stack technique</h4><p>HTML5, CSS3 (Flexbox, Grid, animations, responsive), JavaScript ES6 (bases), PHP, WordPress (Elementor), MySQL, Figma (wireframes), VS Code.</p><div class="logi"><span>HTML5</span><span class="b">CSS3</span><span class="c">JavaScript</span><span class="d">PHP</span><span class="e">WordPress</span><span>MySQL</span><span class="b">Figma</span><span class="f">VS Code</span></div></div>
+    <div class="ibox" style="border-left-color:var(--teal)"><h4>💡 Approche</h4><p>Je conçois toujours le design avant le code : brief, maquette Figma, puis intégration. La cohérence visuelle et l'UX passent avant la logique technique.</p></div>
+  </div>
+  <span class="se teal">Démonstrations vidéo <span class="cbadge u" style="margin-left:8px">Universitaire · 1re année BUT</span></span>
+  <h2 class="sh">Mes sites en vidéo</h2>
+  <p class="sp">Screencasts montrant mes sites en fonctionnement réel. Clic = lecture · Double-clic = plein écran.</p>
+  <div class="g3 sg">
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Démo site Iris WordPress">
+      <video src="Images/vid-site-iris.mp4" preload="metadata"></video>
+      <div class="vsub sage">WordPress · Elementor</div><div class="vplay">▶</div>
+      <div class="vtit">Site Iris Innovation — WordPress</div>
+    </div>
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Démo site Roméo Juliette BDD">
+      <video src="Images/vid-site-romeo.mp4" preload="metadata"></video>
+      <div class="vsub teal">PHP + MySQL BDD</div><div class="vplay">▶</div>
+      <div class="vtit">Roméo &amp; Juliette — Base de données</div>
+    </div>
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Démo site Cinéma Anglophone">
+      <video src="Images/vid-site-cinema.mp4" preload="metadata"></video>
+      <div class="vsub lav">CSS / HTML / PHP</div><div class="vplay">▶</div>
+      <div class="vtit">Cinéma Anglophone — Dénonciation</div>
+    </div>
+  </div>
+  <p class="v-hint">▶ Clic = lecture · Double-clic = plein écran natif</p>
+  <div class="pnav">
+    <button class="pnb" onclick="go('photographie')"><span class="pnl">Précédent</span><span class="pnt">← Photographie</span></button>
+    <button class="pnb r" onclick="go('videos')"><span class="pnl">Suivant</span><span class="pnt">Vidéos →</span></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ VIDÉOS ═══════════════════════════ -->
+<section id="videos" class="page" aria-label="Vidéos et production audiovisuelle">
+  <div class="pgh">
+    <span class="ey sage">Production audiovisuelle · BUT MMI</span>
+    <h1 class="ptitle"><em>Vidéos</em></h1>
+    <p class="lead">Films publicitaires, interviews, tutoriels — réalisés dans le cadre des SAÉ BUT MMI.</p>
+    <p class="body-txt">Logiciels de montage : <strong>CapCut, Adobe Premiere Pro, iMovie</strong>. Prise de vue : <strong>iPhone</strong>. Clic pour lancer, double-clic pour le plein écran.</p>
+  </div>
+  <div class="cb sage"><p>Chaque plan est une décision. Chaque montage, un point de vue.</p><span class="cbtag">iPhone · CapCut · Adobe Premiere Pro · Tournage · Scripting</span></div>
+
+  <span class="se rose">Films publicitaires Iris <span class="cbadge u" style="margin-left:6px">SAÉ 202</span></span>
+  <h2 class="sh">Publicité Iris — FR &amp; EN</h2>
+  <p class="sp">Direction de tournage, scripting, tournage au Jardin Henry Vinay (Le Puy-en-Velay), montage <strong>CapCut + Adobe Premiere Pro</strong>. Présentés lors de la soutenance devant jury, juin 2026.</p>
+  <div class="g2 sg">
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Publicité Iris version française">
+      <video src="Images/vid-iris-fr.mp4" preload="metadata"></video>
+      <div class="vsub">Publicité · SAÉ 202 · FR</div><div class="vplay">▶</div>
+      <div class="vtit">Vidéo Iris Innovation — Version française</div>
+    </div>
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Iris advertisement English">
+      <video src="Images/vid-iris-en.mp4" preload="metadata"></video>
+      <div class="vsub teal">Advertisement · SAÉ 202 · EN</div><div class="vplay">▶</div>
+      <div class="vtit">Iris Innovation — English version</div>
+    </div>
+  </div>
+  <p class="img-caption">Films publicitaires Iris Innovation · iPhone · CapCut + Adobe Premiere Pro · SAÉ 202 · 2026</p>
+
+  <div class="divl">✦</div>
+  <span class="se teal">Interviews &amp; Reportages <span class="cbadge u" style="margin-left:6px">SAÉ 104 &amp; 202</span></span>
+  <h2 class="sh">Interviews</h2>
+  <div class="g3 sg">
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Interview Charlotte Lohou SAÉ 104">
+      <video src="Images/vid-interview-sae.mp4" preload="metadata"></video>
+      <div class="vsub">SAÉ 104</div><div class="vplay">▶</div>
+      <div class="vtit">Interview BUT MMI — Charlotte Lohou</div>
+    </div>
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Reel Interview CL et ML">
+      <video src="Images/vid-interview-reel.mp4" preload="metadata"></video>
+      <div class="vsub sage">Reel · SAÉ 104</div><div class="vplay">▶</div>
+      <div class="vtit">Reel Interview — C.L &amp; M.L</div>
+    </div>
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Interview Iris Nahil et Tristan">
+      <video src="Images/vid-interview-iris.mp4" preload="metadata"></video>
+      <div class="vsub teal">SAÉ 202 · Iris</div><div class="vplay">▶</div>
+      <div class="vtit">Interview Iris — N.I &amp; T.M</div>
+    </div>
+  </div>
+
+  <div class="divl">✦</div>
+  <span class="se lav">Tutoriel <span class="cbadge u" style="margin-left:6px">SAÉ 104 · Équipe de 3</span></span>
+  <h2 class="sh">Tutoriel SAÉ 104</h2>
+  <p class="sp">Réalisé avec <strong>Adélie Hadjibeyan et Loane Besson</strong>. Scripting, tournage iPhone, montage <strong>CapCut</strong>.</p>
+  <div style="max-width:640px">
+    <div class="vt" onclick="toggleVid(this)" role="button" aria-label="Tutoriel SAÉ 104">
+      <video src="Images/vid-tutoriel-sae.mp4" preload="metadata"></video>
+      <div class="vsub lav">Tutoriel · SAÉ 104 · Équipe</div><div class="vplay">▶</div>
+      <div class="vtit">Tutoriel SAÉ 104 — Charlotte, Adélie, Loane</div>
+    </div>
+  </div>
+  <p class="img-caption">Tutoriel SAÉ 104 · Charlotte Lohou, Adélie Hadjibeyan, Loane Besson · iPhone · CapCut · 2025–2026</p>
+
+  <div class="pnav">
+    <button class="pnb" onclick="go('programmation')"><span class="pnl">Précédent</span><span class="pnt">← Programmation</span></button>
+    <button class="pnb r" onclick="go('articles')"><span class="pnl">Suivant</span><span class="pnt">Articles →</span></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ARTICLES ═══════════════════════════ -->
+<section id="articles" class="page" aria-label="Articles de presse et rédaction">
+  <div class="pgh">
+    <span class="ey ochre">Presse, rédaction &amp; journalisme</span>
+    <h1 class="ptitle"><em>Articles</em></h1>
+    <p class="lead">Articles de presse fictive et dossiers académiques réalisés en Terminale (HGGSP et SVT).</p>
+    <p class="body-txt">Productions mises en page sur <strong>Canva</strong> dans des maquettes de journaux fictifs (Fauget News, Breaking News, NASA News). <span class="cbadge p">Scolaire · Terminale 2024–2025</span></p>
+  </div>
+  <div class="cb ochre"><p>Écrire, c'est donner une forme à ce qu'on pense.</p><span class="cbtag">Rédaction · Journalisme · Canva · HGGSP · Terminale</span></div>
+
+  <span class="se peach">Fauget News &amp; Breaking News</span>
+  <h2 class="sh">Presse fictive</h2>
+  <div class="g3 sg" style="margin-bottom:14px">
+    <div class="card"><div class="cell r43"><img src="Images/art-anon1.jpg" alt="Les Anonymous — Lanceurs d'alertes"/></div><div class="cm"><span class="ct">Fauget News · Fév. 2024</span><p class="cv2">Les Anonymous — Lanceurs d'alertes</p><p class="cs2">Origines, rôle pour la démocratie numérique, dangers éventuels.</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/art-anon2.jpg" alt="Les Anonymous — Sciences politiques"/></div><div class="cm"><span class="ct">Fauget News · Fév. 2024</span><p class="cv2">Les Anonymous — Sciences politiques</p><p class="cs2">Positionnement dans l'espace public et débats éthiques.</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/art-dreyfus.jpg" alt="La Réhabilitation de Dreyfus"/></div><div class="cm"><span class="ct">Breaking News · Déc. 2023</span><p class="cv2">La Réhabilitation de Dreyfus !</p><p class="cs2">L'affaire et la réhabilitation par la Cour de cassation en 1906.</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/art-anon3.jpg" alt="Les Anonymous — Suite"/></div><div class="cm"><span class="ct">Fauget News · Fév. 2024</span><p class="cv2">Les Anonymous — Bilan</p><p class="cs2">Opérations majeures et perspectives d'évolution.</p></div></div>
+  </div>
+
+  <div class="divl">✦</div>
+  <span class="se sky">Dossiers académiques · NASA News &amp; SVT</span>
+  <h2 class="sh">Dossiers thématiques</h2>
+  <div class="g3 sg">
+    <div class="card"><div class="cell r43"><img src="Images/art-patrimoine.jpg" alt="Patrimoine africain"/></div><div class="cm"><span class="ct">HGGSP T2</span><p class="cv2">Politique française sur le Patrimoine Africain</p><p class="cs2">Restitution des objets culturels et enjeux diplomatiques.</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/art-iss1.jpg" alt="ISS création"/></div><div class="cm"><span class="ct">NASA News · Sept. 2024</span><p class="cv2">Comment a été créée l'ISS ?</p><p class="cs2">Histoire et collaboration internationale depuis 1998.</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/art-iss2.jpg" alt="Avenir de l'ISS"/></div><div class="cm"><span class="ct">NASA News · Sept. 2024</span><p class="cv2">Quel avenir pour l'ISS ?</p><p class="cs2">Privatisation et perspectives pour 2030.</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/art-revolution.jpg" alt="Révolution Industrielle"/></div><div class="cm"><span class="ct">HGGSP · Jan. 2025</span><p class="cv2">La Révolution Industrielle (1760–1840)</p><p class="cs2">Transformation des sociétés et rupture des logiques d'exploitation.</p></div></div>
+    <div class="card"><div class="cell r43"><img src="Images/soleil.jpg" alt="Dangers du Soleil"/></div><div class="cm"><span class="ct">SVT T2</span><p class="cv2">Bienfaits &amp; dangers du Soleil</p><p class="cs2">Vitamine D, mélanomes, photoprotection.</p></div></div>
+  </div>
+
+  <div class="pnav">
+    <button class="pnb" onclick="go('videos')"><span class="pnl">Précédent</span><span class="pnt">← Vidéos</span></button>
+    <button class="pnb r" onclick="go('dessin')"><span class="pnl">Suivant</span><span class="pnt">Dessin →</span></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ DESSIN ═══════════════════════════ -->
+<section id="dessin" class="page" aria-label="Dessin et illustration">
+  <div class="pgh">
+    <span class="ey lilac">Arts plastiques &amp; Illustration</span>
+    <h1 class="ptitle"><em>Dessin</em></h1>
+    <p class="lead">Illustrations, exercices académiques et créations personnelles — craie grasse, aquarelle et main levée.</p>
+    <p class="body-txt">Le dessin nourrit mon œil graphique. Les dessins à la craie grasse sont des <strong>travaux scolaires de lycée</strong>, les illustrations à main levée sont des <strong>créations personnelles</strong>. Clique pour agrandir.</p>
+  </div>
+  <div class="cb lilac"><p>Dessiner, c'est penser avec les mains.</p><span class="cbtag">Craie grasse · Aquarelle · Main levée · Scolaire &amp; Personnel</span></div>
+
+  <div class="dsec"><h3><span class="dot" style="background:var(--rose)"></span>Dessin à la craie grasse <span class="cbadge p" style="margin-left:8px">Scolaire · Lycée</span></h3>
+    <p class="sp">4 œuvres réalisées en cours d'arts plastiques.</p>
+    <div class="g3 sg">
+      <div class="cell r1"><img src="Images/des-fleur.jpg" alt="Fleur tropicale à la craie grasse"/></div>
+      <div class="cell r1"><img src="Images/des-chien.jpg" alt="Chien ballon à la craie grasse"/></div>
+      <div class="cell r1"><img src="Images/des-orange.jpg" alt="Tranche d'orange à la craie grasse"/></div>
+      <div class="cell r1"><img src="Images/des-spirale.jpg" alt="Spirale colorée à la craie grasse"/></div>
+    </div>
+    <p class="img-caption">Craie grasse sur fond noir · Cours d'arts plastiques · Lycée La Chartreuse Paradis</p>
+  </div>
+
+  <div class="divl">✦</div>
+  <div class="dsec"><h3><span class="dot" style="background:var(--lav)"></span>Aquarelle <span class="cbadge p" style="margin-left:8px">Personnel</span></h3>
+    <div style="max-width:380px"><div class="cell r43"><img src="Images/des-raisins.jpg" alt="Grappe de raisins à l'aquarelle"/></div></div>
+    <p class="img-caption">Grappe de raisins · Aquarelle · Création personnelle</p>
+  </div>
+
+  <div class="divl">✦</div>
+  <div class="dsec"><h3><span class="dot" style="background:var(--mint)"></span>Dessin à main levée <span class="cbadge p" style="margin-left:8px">Personnel</span></h3>
+    <p class="sp">Illustrations au stylo bille sur cahier — Disney, Charlotte Brontë, Bram Stoker, contes de fées.</p>
+    <div class="g3 sg">
+      <div class="cell r43"><img src="Images/des-belle.jpg" alt="La Belle et la Bête — escarpin et rose"/></div>
+      <div class="cell r43"><img src="Images/des-disney.jpg" alt="Typographie Disney"/></div>
+      <div class="cell r43"><img src="Images/des-apple.jpg" alt="Pomme empoisonnée Blanche-Neige"/></div>
+      <div class="cell r43"><img src="Images/des-janeeyre.jpg" alt="Jane Eyre — Charlotte Brontë"/></div>
+      <div class="cell r43"><img src="Images/des-dracula.jpg" alt="Dracula — Bram Stoker"/></div>
+    </div>
+    <p class="img-caption">Stylo bille sur cahier · Créations personnelles · Références : Disney, Brontë, Stoker</p>
+  </div>
+
+  <div class="pq">
+    <p>Dessiner, c'est mentir en disant la vérité.</p>
+    <cite>Sur la pratique du dessin à main levée</cite>
+  </div>
+
+  <div class="pnav">
+    <button class="pnb" onclick="go('articles')"><span class="pnl">Précédent</span><span class="pnt">← Articles</span></button>
+    <button class="pnb r" onclick="go('contact')"><span class="pnl">Suivant</span><span class="pnt">Contact →</span></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+<section id="contact" aria-label="Contact">
+  <div>
+    <span class="ey rose">Disponible · Alternance BUT 3 · 2027</span>
+    <h1 style="font-family:var(--serif);font-weight:300;font-size:clamp(2.6rem,5vw,4.5rem);letter-spacing:-.022em;margin-bottom:12px">Contact</h1>
+    <p style="font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--muted);max-width:380px;line-height:1.85;margin-bottom:32px">Un projet, une offre d'alternance ou une collaboration ? Je suis disponible par mail ou via les réseaux.</p>
+    <div class="ff"><label for="c-nom">Nom</label><input id="c-nom" type="text" placeholder="Votre nom" autocomplete="name"/></div>
+    <div class="ff"><label for="c-email">Email</label><input id="c-email" type="email" placeholder="Votre adresse email" autocomplete="email"/></div>
+    <div class="ff"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="Votre message…" rows="4"></textarea></div>
+    <button class="btn-snd">Envoyer ✉</button>
+  </div>
+  <div class="ci">
+    <p class="cname">Charlotte Lohou</p>
+    <p>46 rue Saint-Gilles<br>43000 Le Puy-en-Velay</p>
+    <p>1793 route de Chastel<br>43800 Rosières</p>
+    <p style="margin-top:12px">📱 07 87 31 34 68</p>
+    <p>✉ <a href="mailto:lohoucharlotte@gmail.com">lohoucharlotte@gmail.com</a></p>
+    <p>✉ <a href="mailto:charlotte.lohou@icloud.com">charlotte.lohou@icloud.com</a></p>
+    <p style="margin-top:10px">🔗 <a href="https://www.linkedin.com/in/charlottelohou-5b94b33b4/" target="_blank">LinkedIn</a></p>
+    <p>📷 <a href="https://www.instagram.com/gammeiris/" target="_blank">@gammeiris</a></p>
+    <div class="srow">
+      <a href="https://www.linkedin.com/in/charlottelohou-5b94b33b4/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/gammeiris/" target="_blank">@gammeiris</a>
+      <a href="mailto:lohoucharlotte@gmail.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026–2027 Charlotte Lohou · BUT MMI Création Numérique · IUT Clermont Auvergne Le Puy-en-Velay</p>
+  <div class="fl">
+    <a href="#" onclick="go('portfolio');return false">Portfolio</a>
+    <a href="#" onclick="go('communication');return false">Communication</a>
+    <a href="#" onclick="go('contact');return false">Contact</a>
+  </div>
+</footer>
+
+<script>
+const ORDER = ['portfolio','communication','photographie','programmation','videos','articles','dessin','contact'];
+const NAVIDS = {portfolio:'nl-portfolio',photographie:'nl-photographie',videos:'nl-videos',dessin:'nl-dessin',contact:'nl-contact'};
+
+/* DROPDOWN */
+function toggleDD(id, btnId) {
+  const dd = document.getElementById(id), btn = document.getElementById(btnId);
+  const wasOpen = dd.classList.contains('open');
+  closeDD();
+  if (!wasOpen) { dd.classList.add('open'); btn.classList.add('open'); btn.setAttribute('aria-expanded','true') }
+}
+function closeDD() {
+  document.querySelectorAll('.dd').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.nav-btn').forEach(b => { b.classList.remove('open'); b.setAttribute('aria-expanded','false') });
+}
+document.addEventListener('click', e => { if (!e.target.closest('#mn')) closeDD() });
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeDD() });
+
+/* PAGE SWITCH */
+function go(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+  document.getElementById('contact').classList.remove('on');
+  document.getElementById(id).classList.add('on');
+  document.querySelectorAll('.nav-a,.nav-btn').forEach(a => a.classList.remove('on'));
+  if (NAVIDS[id]) document.getElementById(NAVIDS[id])?.classList.add('on');
+  const i = ORDER.indexOf(id);
+  document.getElementById('pcn').textContent = String(i+1).padStart(2,'0');
+  document.querySelectorAll('.sd').forEach((d,j) => d.classList.toggle('on', j===i));
+  scrollTo({top:0, behavior:'smooth'});
+  closeDD();
+  document.querySelectorAll('.vt video').forEach(v => { v.pause(); v.currentTime=0; v.parentElement.classList.remove('playing') });
+  if (id==='portfolio') setTimeout(animSkills, 300);
+  lbItems = []; setTimeout(buildLB, 160);
+}
+document.querySelectorAll('.sd').forEach(b => b.addEventListener('click', () => go(b.dataset.p)));
+
+/* DARK */
+function toggleDark() { document.body.classList.toggle('dark'); localStorage.setItem('dk', document.body.classList.contains('dark')) }
+if (localStorage.getItem('dk')=== 'true') document.body.classList.add('dark');
+
+/* SKILLS */
+function animSkills() { document.querySelectorAll('.sk-f').forEach(el => { el.classList.remove('go'); void el.offsetWidth; setTimeout(()=>el.classList.add('go'),60) }) }
+
+/* SCROLL */
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('prog').style.width = (window.scrollY/(h.scrollHeight-h.clientHeight)*100)+'%';
+  document.getElementById('btt').classList.toggle('on', window.scrollY>280);
+});
+
+/* VIDEO */
+function toggleVid(tile) {
+  const vid = tile.querySelector('video');
+  if (!vid) return;
+  document.querySelectorAll('.vt video').forEach(v => { if (v!==vid) { v.pause(); v.parentElement.classList.remove('playing') } });
+  if (vid.paused) { vid.play(); tile.classList.add('playing') } else { vid.pause(); tile.classList.remove('playing') }
+}
+document.addEventListener('dblclick', e => {
+  const vt = e.target.closest('.vt'); if (!vt) return;
+  const vid = vt.querySelector('video'); if (!vid) return;
+  if (vid.requestFullscreen) vid.requestFullscreen();
+  else if (vid.webkitRequestFullscreen) vid.webkitRequestFullscreen();
+  e.preventDefault();
+});
+
+/* LIGHTBOX */
+let lbItems = [], lbIdx = 0;
+function buildLB() {
+  lbItems = [];
+  const pg = document.querySelector('.page.on') || document.getElementById('contact');
+  if (!pg) return;
+  pg.querySelectorAll('.cell img').forEach(img => { if (img.src) lbItems.push({src:img.src, cap:img.alt||''}) });
+}
+function showLbImg(idx) {
+  const item = lbItems[idx]; if (!item) return;
+  const inner = document.getElementById('lb-inner');
+  inner.innerHTML = '';
+  const img = new Image(); img.alt = item.cap; img.src = item.src;
+  inner.appendChild(img);
+  document.getElementById('lb-cap').textContent = item.cap;
+}
+function openLb(idx) {
+  lbIdx = Math.max(0, Math.min(idx, lbItems.length-1));
+  showLbImg(lbIdx);
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('lb-x').focus(), 50);
+}
+function closeLb() { document.getElementById('lb').classList.remove('open'); document.getElementById('lb-inner').innerHTML = ''; document.body.style.overflow = '' }
+function lbBg(e) { if (e.target.id==='lb') closeLb() }
+function lbNav(dir) { if (!lbItems.length) return; lbIdx=(lbIdx+dir+lbItems.length)%lbItems.length; showLbImg(lbIdx) }
+document.addEventListener('click', e => {
+  if (document.getElementById('lb').classList.contains('open')) return;
+  const cell = e.target.closest('.cell'); if (!cell||cell.closest('.vt')) return;
+  const img = cell.querySelector('img'); if (!img||!img.src) return;
+  if (!lbItems.length) buildLB();
+  const idx = lbItems.findIndex(it => it.src===img.src);
+  openLb(idx>=0?idx:0);
+});
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lb').classList.contains('open')) return;
+  if (e.key==='Escape') { closeLb(); e.preventDefault() }
+  if (e.key==='ArrowRight') { lbNav(1); e.preventDefault() }
+  if (e.key==='ArrowLeft') { lbNav(-1); e.preventDefault() }
+});
+
+/* LANGUE (FR/EN) — FONCTIONNEL */
+let currentLang = 'fr';
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('lo-fr').classList.toggle('on', lang==='fr');
+  document.getElementById('lo-fr').setAttribute('aria-pressed', lang==='fr');
+  document.getElementById('lo-en').classList.toggle('on', lang==='en');
+  document.getElementById('lo-en').setAttribute('aria-pressed', lang==='en');
+  document.documentElement.lang = lang;
+  /* Traduit tous les éléments avec data-fr / data-en */
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val === null) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else {
+      const hasChildren = [...el.childNodes].some(n => n.nodeType === 1 && !['SPAN','EM','STRONG','A'].includes(n.tagName));
+      if (!hasChildren) el.innerHTML = val;
+    }
+  });
+  /* Placeholders du formulaire */
+  const ph = {fr:{nom:'Votre nom',email:'Votre adresse email',msg:'Votre message…'},en:{nom:'Your name',email:'Your email address',msg:'Your message…'}};
+  const p = ph[lang];
+  const n=document.getElementById('c-nom'); if(n) n.placeholder=p.nom;
+  const e=document.getElementById('c-email'); if(e) e.placeholder=p.email;
+  const m=document.getElementById('c-msg'); if(m) m.placeholder=p.msg;
+}
+
+/* INIT */
+go('portfolio');
+setTimeout(() => document.getElementById('sdots').classList.add('on'), 500);
+</script>
+</body>
+</html>
