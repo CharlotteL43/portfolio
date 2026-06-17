@@ -23,10 +23,10 @@
   <button class="sd on" data-p="portfolio"><span class="sdl" data-fr="Portfolio" data-en="Portfolio">Portfolio</span></button>
   <button class="sd" data-p="communication"><span class="sdl" data-fr="Communication" data-en="Communication">Communication</span></button>
   <button class="sd" data-p="photographie"><span class="sdl" data-fr="Photographie" data-en="Photography">Photographie</span></button>
-  <button class="sd" data-p="programmation"><span class="sdl" data-fr="Programmation" data-en="Web dev">Programmation</span></button>
   <button class="sd" data-p="videos"><span class="sdl" data-fr="Vidéos" data-en="Videos">Vidéos</span></button>
   <button class="sd" data-p="creation"><span class="sdl" data-fr="Création artistique" data-en="Artistic creation">Création artistique</span></button>
   <button class="sd" data-p="dessin"><span class="sdl" data-fr="Dessin" data-en="Drawing">Dessin</span></button>
+  <button class="sd" data-p="programmation"><span class="sdl" data-fr="Programmation" data-en="Web dev">Programmation</span></button>
   <button class="sd" data-p="contact"><span class="sdl" data-fr="Contact" data-en="Contact">Contact</span></button>
 </nav>
 
@@ -72,20 +72,6 @@
       </div>
     </li>
 
-    <li>
-      <div class="nav-btn-wrap" id="wrap-dev">
-        <a class="nav-main" id="btn-dev-main" href="#" onclick="go('programmation');return false" data-fr="Développement web" data-en="Web development">Développement web</a>
-        <button class="nav-caret" id="btn-dev" aria-haspopup="true" aria-expanded="false" aria-label="Sous-catégories Développement web" onclick="toggleDD('dd-dev','wrap-dev')"><span class="arr">▾</span></button>
-      </div>
-      <div class="dd" id="dd-dev" role="menu">
-        <a href="#" role="menuitem" onclick="goAnchor('programmation','sub-sites');return false">
-          <span class="dd-icon" style="background:var(--vl)">💻</span><span data-fr="Sites web" data-en="Websites">Sites web</span>
-        </a>
-        <a href="#" role="menuitem" onclick="goAnchor('programmation','sub-demos');return false">
-          <span class="dd-icon" style="background:var(--mintl)">▶</span><span data-fr="Démos vidéo des sites" data-en="Video demos">Démos vidéo des sites</span>
-        </a>
-      </div>
-    </li>
 
     <li><a class="nav-a" href="#" id="nl-photographie" onclick="go('photographie');return false" data-fr="Photographie" data-en="Photography">Photographie</a></li>
     <li><a class="nav-a" href="#" id="nl-videos" onclick="go('videos');return false" data-fr="Vidéos" data-en="Videos">Vidéos</a></li>
@@ -112,6 +98,22 @@
     </li>
 
     <li><a class="nav-a" href="#" id="nl-dessin" onclick="go('dessin');return false" data-fr="Dessin" data-en="Drawing">Dessin</a></li>
+
+    <li>
+      <div class="nav-btn-wrap" id="wrap-dev">
+        <a class="nav-main" id="btn-dev-main" href="#" onclick="go('programmation');return false" data-fr="Développement web" data-en="Web development">Développement web</a>
+        <button class="nav-caret" id="btn-dev" aria-haspopup="true" aria-expanded="false" aria-label="Sous-catégories Développement web" onclick="toggleDD('dd-dev','wrap-dev')"><span class="arr">▾</span></button>
+      </div>
+      <div class="dd" id="dd-dev" role="menu">
+        <a href="#" role="menuitem" onclick="goAnchor('programmation','sub-sites');return false">
+          <span class="dd-icon" style="background:var(--vl)">💻</span><span data-fr="Sites web" data-en="Websites">Sites web</span>
+        </a>
+        <a href="#" role="menuitem" onclick="goAnchor('programmation','sub-demos');return false">
+          <span class="dd-icon" style="background:var(--mintl)">▶</span><span data-fr="Démos vidéo des sites" data-en="Video demos">Démos vidéo des sites</span>
+        </a>
+      </div>
+    </li>
+    
     <li><a class="nav-a" href="#" id="nl-contact" onclick="go('contact');return false" data-fr="Contact" data-en="Contact">Contact</a></li>
     <li>
       <div class="nav-ctrls">
@@ -136,10 +138,10 @@
     <button class="mob-link" onclick="go('portfolio');closeMobileMenu()" data-fr="🏠 Portfolio" data-en="🏠 Portfolio">🏠 Portfolio</button>
     <button class="mob-link" onclick="go('communication');closeMobileMenu()" data-fr="🎨 Communication" data-en="🎨 Communication">🎨 Communication</button>
     <button class="mob-link" onclick="go('photographie');closeMobileMenu()" data-fr="📷 Photographie" data-en="📷 Photography">📷 Photographie</button>
-    <button class="mob-link" onclick="go('programmation');closeMobileMenu()" data-fr="💻 Développement web" data-en="💻 Web development">💻 Développement web</button>
     <button class="mob-link" onclick="go('videos');closeMobileMenu()" data-fr="🎬 Vidéos" data-en="🎬 Videos">🎬 Vidéos</button>
     <button class="mob-link" onclick="go('creation');closeMobileMenu()" data-fr="✨ Création artistique" data-en="✨ Artistic creation">✨ Création artistique</button>
     <button class="mob-link" onclick="go('dessin');closeMobileMenu()" data-fr="✏️ Dessin" data-en="✏️ Drawing">✏️ Dessin</button>
+    <button class="mob-link" onclick="go('programmation');closeMobileMenu()" data-fr="💻 Développement web" data-en="💻 Web development">💻 Développement web</button>
     <button class="mob-link" onclick="go('contact');closeMobileMenu()" data-fr="📬 Contact" data-en="📬 Contact">📬 Contact</button>
   </div>
   <div class="mob-section">
@@ -810,79 +812,8 @@
     <button class="pnb r" onclick="go('programmation')"><span class="pnl" data-fr="Suivant" data-en="Next">Suivant</span><span class="pnt" data-fr="Programmation →" data-en="Web development →">Programmation →</span></button>
   </div>
 </section>
-<!-- ═══════════════════════════ PROGRAMMATION / DÉVELOPPEMENT WEB ═══════════════════════════ -->
-<section id="programmation" class="page" aria-label="Programmation web ; Développement web">
-  <div class="pgh">
-    <span class="ey mint" data-fr="Développement web · Programmation web · BUT MMI" data-en="Web development · BUT MMI">Développement web · Programmation web · BUT MMI</span>
-    <h1 class="ptitle"><em data-fr="Programmation web" data-en="Web Development">Programmation web</em></h1>
-    <p class="lead" data-fr="Sites web, interfaces interactives et intégrations HTML/CSS/PHP réalisées en 1re année de BUT MMI." data-en="Websites, interactive interfaces and HTML/CSS/PHP integrations made in the first year of BUT MMI.">Sites web, interfaces interactives et intégrations HTML/CSS/PHP réalisées en 1re année de BUT MMI.</p>
-    <p class="body-txt" data-fr="J'ai appris à concevoir des sites web de A à Z : maquette <strong>Figma</strong>, intégration <strong>HTML5/CSS3</strong>, gestion des contenus responsive. J'ai découvert <strong>PHP</strong> et <strong>MySQL</strong> pour le projet Roméo &amp; Juliette, et <strong>WordPress/Elementor</strong> pour le site Iris. Pour moi, le code est au service du design. Tous ces projets sont <strong>universitaires</strong>, réalisés en 1re année de BUT." data-en="I learned to design websites from A to Z: <strong>Figma</strong> mockup, <strong>HTML5/CSS3</strong> integration, responsive content management. I discovered <strong>PHP</strong> and <strong>MySQL</strong> for the Romeo &amp; Juliet project, and <strong>WordPress/Elementor</strong> for the Iris website. For me, code serves design. All these projects are <strong>academic</strong>, made in the first year of the BUT.">J'ai appris à concevoir des sites web de A à Z&nbsp;: maquette <strong>Figma</strong>, intégration <strong>HTML5/CSS3</strong>, gestion des contenus responsive. J'ai découvert <strong>PHP</strong> et <strong>MySQL</strong> pour le projet Roméo &amp; Juliette, et <strong>WordPress/Elementor</strong> pour le site Iris. Pour moi, le code est au service du design. Tous ces projets sont <strong>universitaires</strong>, réalisés en 1re année de BUT.</p>
-  </div>
-  <div class="cb mint"><p data-fr="Le code, c'est du design avec de la syntaxe." data-en="Code is design with syntax.">Le code, c'est du design avec de la syntaxe.</p><span class="cbtag">HTML5 · CSS3 · PHP · WordPress · Figma · MySQL · VS Code</span></div>
-  <div class="igrid">
-    <div class="ibox" style="border-left-color:var(--mint)">
-      <h4 data-fr="🛠️ Stack technique" data-en="🛠️ Technical stack">🛠️ Stack technique</h4>
-      <p data-fr="HTML5, CSS3 (Flexbox, Grid, animations, responsive), JavaScript ES6 (bases), PHP, WordPress (Elementor), MySQL, Figma (wireframes), VS Code." data-en="HTML5, CSS3 (Flexbox, Grid, animations, responsive), JavaScript ES6 (basics), PHP, WordPress (Elementor), MySQL, Figma (wireframes), VS Code.">HTML5, CSS3 (Flexbox, Grid, animations, responsive), JavaScript ES6 (bases), PHP, WordPress (Elementor), MySQL, Figma (wireframes), VS Code.</p>
-      <div class="logi"><span>HTML5</span><span class="b">CSS3</span><span class="c">JavaScript</span><span class="d">PHP</span><span class="e">WordPress</span><span>MySQL</span><span class="b">Figma</span><span class="f">VS Code</span></div>
-    </div>
-    <div class="ibox" style="border-left-color:var(--teal)">
-      <h4 data-fr="💡 Approche" data-en="💡 Approach">💡 Approche</h4>
-      <p data-fr="Je conçois toujours le design avant le code : brief, maquette Figma, puis intégration. La cohérence visuelle et l'UX passent avant la logique technique." data-en="I always design before coding: brief, Figma mockup, then integration. Visual consistency and UX come before technical logic.">Je conçois toujours le design avant le code&nbsp;: brief, maquette Figma, puis intégration. La cohérence visuelle et l'UX passent avant la logique technique.</p>
-    </div>
-  </div>
-
-  <div class="divl">✦</div>
-
-  <!-- ═══ SOUS-PARTIE 1 : SITES WEB ═══ -->
-  <div class="subhead" id="sub-sites"><span class="subnum">01</span></div>
-  <span class="se mint" data-fr="Mes sites web" data-en="My websites">Mes sites web <span class="cbadge u" style="margin-left:8px" data-fr="Universitaire · 1re année BUT" data-en="University · 1st year BUT">Universitaire · 1re année BUT</span></span>
-  <h2 class="sh" data-fr="Trois sites, trois technologies" data-en="Three websites, three technologies">Trois sites, trois technologies</h2>
-  <p class="sp" data-fr="Site Iris (WordPress/Elementor), site Roméo & Juliette (PHP + base de données MySQL), site Cinéma Anglophone (HTML/CSS/PHP). Voir les démonstrations vidéo ci-dessous." data-en="Iris site (WordPress/Elementor), Romeo & Juliet site (PHP + MySQL database), English Cinema site (HTML/CSS/PHP). See the video demos below.">Site Iris (WordPress/Elementor), site Roméo &amp; Juliette (PHP + base de données MySQL), site Cinéma Anglophone (HTML/CSS/PHP). Voir les démonstrations vidéo ci-dessous.</p>
-  <div class="igrid">
-    <div class="sub-card">
-      <h4 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:7px" data-fr="🌸 Site Iris Innovation" data-en="🌸 Iris Innovation website">🌸 Site Iris Innovation</h4>
-      <p style="color:var(--muted);line-height:1.75" data-fr="Site institutionnel bilingue (FR/EN) conçu sous <strong>WordPress</strong> avec le constructeur <strong>Elementor</strong> pour la campagne Iris (SAÉ 202). Structure&nbsp;: page d'accueil avec hero animé, présentation de la gamme en 11 déclinaisons, page valeurs inclusives, page contact. Entièrement responsive mobile. Cohérence totale avec la charte graphique de la campagne." data-en="Bilingual institutional website (FR/EN) built with <strong>WordPress</strong> and the <strong>Elementor</strong> builder for the Iris campaign (SAÉ 202). Structure: homepage with animated hero, range presentation in 11 variants, inclusive values page, contact page. Fully mobile-responsive. Total consistency with the campaign style guide.">Site institutionnel bilingue (FR/EN) conçu sous <strong>WordPress</strong> avec le constructeur <strong>Elementor</strong> pour la campagne Iris (SAÉ 202). Structure&nbsp;: page d'accueil avec hero animé, présentation de la gamme en 11 déclinaisons, page valeurs inclusives, page contact. Entièrement responsive mobile. Cohérence totale avec la charte graphique de la campagne.</p>
-    </div>
-    <div class="sub-card">
-      <h4 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:7px" data-fr="📚 Roméo & Juliette" data-en="📚 Romeo & Juliet">📚 Roméo &amp; Juliette</h4>
-      <p style="color:var(--muted);line-height:1.75" data-fr="Site dynamique développé en <strong>PHP + MySQL</strong> permettant de naviguer dans la structure de la pièce&nbsp;: personnages, actes, scènes, répliques. Interface d'affichage dynamique avec requêtes SQL, formulaires de recherche, affichage conditionnel. Première expérience concrète avec une base de données relationnelle et la logique back-end." data-en="Dynamic website built in <strong>PHP + MySQL</strong>, allowing navigation through the play's structure: characters, acts, scenes, lines. Dynamic display interface with SQL queries, search forms, conditional display. First hands-on experience with a relational database and back-end logic.">Site dynamique développé en <strong>PHP + MySQL</strong> permettant de naviguer dans la structure de la pièce&nbsp;: personnages, actes, scènes, répliques. Interface d'affichage dynamique avec requêtes SQL, formulaires de recherche, affichage conditionnel. Première expérience concrète avec une base de données relationnelle et la logique back-end.</p>
-    </div>
-    <div class="sub-card">
-      <h4 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:7px" data-fr="🎬 Cinéma Anglophone" data-en="🎬 English-Speaking Cinema">🎬 Cinéma Anglophone</h4>
-      <p style="color:var(--muted);line-height:1.75" data-fr="Site HTML/CSS/PHP de dénonciation autour du cinéma anglophone : intégration responsive, mise en page éditoriale." data-en="An HTML/CSS/PHP advocacy website about English-speaking cinema: responsive integration, editorial layout.">Site HTML/CSS/PHP de dénonciation autour du cinéma anglophone&nbsp;: intégration responsive, mise en page éditoriale.</p>
-    </div>
-  </div>
-
-  <div class="divl">✦</div>
-
-  <!-- ═══ SOUS-PARTIE 2 : DÉMOS VIDÉO ═══ -->
-  <div class="subhead" id="sub-demos"><span class="subnum">02</span></div>
-  <span class="se teal" data-fr="Démonstrations vidéo" data-en="Video demos">Démonstrations vidéo <span class="cbadge u" style="margin-left:8px" data-fr="Universitaire · 1re année BUT" data-en="University · 1st year BUT">Universitaire · 1re année BUT</span></span>
-  <h2 class="sh" data-fr="Mes sites en vidéo" data-en="My websites on video">Mes sites en vidéo</h2>
-  <p class="sp" data-fr="Screencasts montrant mes sites en fonctionnement réel. Cliquez pour lancer ; double-cliquez pour le plein écran." data-en="Screencasts showing my websites running live. Click = play · Double-click = fullscreen.">Screencasts montrant mes sites en fonctionnement réel. Cliquez pour lancer ; double-cliquez pour le plein écran.</p>
-  <div class="g3 sg">
-    <div class="media-item"><div class="vt" onclick="toggleVid(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleVid(this);event.preventDefault()}" role="button" tabindex="0" aria-label="Démo site Iris WordPress">
-      <video src="Images/vid-site-iris.mp4" preload="metadata"></video>
-      <div class="vsub sage">WordPress · Elementor</div><div class="vplay">▶</div>
-      <div class="vtit" data-fr="Site Iris Innovation ; WordPress" data-en="Iris Innovation website ; WordPress">Site Iris Innovation ; WordPress</div>
-    </div><p class="mi-cap" data-fr="Démonstration du site Iris Innovation sous WordPress/Elementor" data-en="Demo of the Iris Innovation website built with WordPress/Elementor">Démonstration du site Iris Innovation sous WordPress/Elementor</p></div>
-    <div class="media-item"><div class="vt" onclick="toggleVid(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleVid(this);event.preventDefault()}" role="button" tabindex="0" aria-label="Démo site Roméo Juliette BDD">
-      <video src="Images/vid-site-romeo.mp4" preload="metadata"></video>
-      <div class="vsub teal">PHP + MySQL BDD</div><div class="vplay">▶</div>
-      <div class="vtit" data-fr="Roméo & Juliette ; Base de données" data-en="Romeo & Juliet ; Database">Roméo &amp; Juliette ; Base de données</div>
-    </div><p class="mi-cap" data-fr="Navigation dynamique dans la pièce via PHP et une base MySQL" data-en="Dynamic navigation through the play via PHP and a MySQL database">Navigation dynamique dans la pièce via PHP et une base MySQL</p></div>
-    <div class="media-item"><div class="vt" onclick="toggleVid(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleVid(this);event.preventDefault()}" role="button" tabindex="0" aria-label="Démo site Cinéma Anglophone">
-      <video src="Images/vid-site-cinema.mp4" preload="metadata"></video>
-      <div class="vsub lav">CSS / HTML / PHP</div><div class="vplay">▶</div>
-      <div class="vtit" data-fr="Cinéma Anglophone ; Dénonciation" data-en="English-Speaking Cinema ; Advocacy">Cinéma Anglophone ; Dénonciation</div>
-    </div><p class="mi-cap" data-fr="Site éditorial HTML/CSS/PHP sur le cinéma anglophone" data-en="HTML/CSS/PHP editorial website about English-speaking cinema">Site éditorial HTML/CSS/PHP sur le cinéma anglophone</p></div>
-  </div>
-  <p class="v-hint" data-fr="▶ Cliquez pour lire · Double-cliquez pour le plein écran" data-en="▶ Click to play · Double-click for fullscreen">▶ Cliquez pour lire · Double-cliquez pour le plein écran</p>
-  <div class="pnav">
-    <button class="pnb" onclick="go('photographie')"><span class="pnl" data-fr="Précédent" data-en="Previous">Précédent</span><span class="pnt" data-fr="← Photographie" data-en="← Photography">← Photographie</span></button>
-    <button class="pnb r" onclick="go('videos')"><span class="pnl" data-fr="Suivant" data-en="Next">Suivant</span><span class="pnt" data-fr="Vidéos →" data-en="Videos →">Vidéos →</span></button>
-  </div>
-</section>
+  
+  
 <!-- ═══════════════════════════ VIDÉOS ═══════════════════════════ -->
 <section id="videos" class="page" aria-label="Vidéos et production audiovisuelle">
   <div class="pgh">
@@ -1076,6 +1007,83 @@
     <button class="pnb r" onclick="go('contact')"><span class="pnl" data-fr="Suivant" data-en="Next">Suivant</span><span class="pnt" data-fr="Contact →" data-en="Contact →">Contact →</span></button>
   </div>
 </section>
+
+
+<!-- ═══════════════════════════ PROGRAMMATION / DÉVELOPPEMENT WEB ═══════════════════════════ -->
+<section id="programmation" class="page" aria-label="Programmation web ; Développement web">
+  <div class="pgh">
+    <span class="ey mint" data-fr="Développement web · Programmation web · BUT MMI" data-en="Web development · BUT MMI">Développement web · Programmation web · BUT MMI</span>
+    <h1 class="ptitle"><em data-fr="Programmation web" data-en="Web Development">Programmation web</em></h1>
+    <p class="lead" data-fr="Sites web, interfaces interactives et intégrations HTML/CSS/PHP réalisées en 1re année de BUT MMI." data-en="Websites, interactive interfaces and HTML/CSS/PHP integrations made in the first year of BUT MMI.">Sites web, interfaces interactives et intégrations HTML/CSS/PHP réalisées en 1re année de BUT MMI.</p>
+    <p class="body-txt" data-fr="J'ai appris à concevoir des sites web de A à Z : maquette <strong>Figma</strong>, intégration <strong>HTML5/CSS3</strong>, gestion des contenus responsive. J'ai découvert <strong>PHP</strong> et <strong>MySQL</strong> pour le projet Roméo &amp; Juliette, et <strong>WordPress/Elementor</strong> pour le site Iris. Pour moi, le code est au service du design. Tous ces projets sont <strong>universitaires</strong>, réalisés en 1re année de BUT." data-en="I learned to design websites from A to Z: <strong>Figma</strong> mockup, <strong>HTML5/CSS3</strong> integration, responsive content management. I discovered <strong>PHP</strong> and <strong>MySQL</strong> for the Romeo &amp; Juliet project, and <strong>WordPress/Elementor</strong> for the Iris website. For me, code serves design. All these projects are <strong>academic</strong>, made in the first year of the BUT.">J'ai appris à concevoir des sites web de A à Z&nbsp;: maquette <strong>Figma</strong>, intégration <strong>HTML5/CSS3</strong>, gestion des contenus responsive. J'ai découvert <strong>PHP</strong> et <strong>MySQL</strong> pour le projet Roméo &amp; Juliette, et <strong>WordPress/Elementor</strong> pour le site Iris. Pour moi, le code est au service du design. Tous ces projets sont <strong>universitaires</strong>, réalisés en 1re année de BUT.</p>
+  </div>
+  <div class="cb mint"><p data-fr="Le code, c'est du design avec de la syntaxe." data-en="Code is design with syntax.">Le code, c'est du design avec de la syntaxe.</p><span class="cbtag">HTML5 · CSS3 · PHP · WordPress · Figma · MySQL · VS Code</span></div>
+  <div class="igrid">
+    <div class="ibox" style="border-left-color:var(--mint)">
+      <h4 data-fr="🛠️ Stack technique" data-en="🛠️ Technical stack">🛠️ Stack technique</h4>
+      <p data-fr="HTML5, CSS3 (Flexbox, Grid, animations, responsive), JavaScript ES6 (bases), PHP, WordPress (Elementor), MySQL, Figma (wireframes), VS Code." data-en="HTML5, CSS3 (Flexbox, Grid, animations, responsive), JavaScript ES6 (basics), PHP, WordPress (Elementor), MySQL, Figma (wireframes), VS Code.">HTML5, CSS3 (Flexbox, Grid, animations, responsive), JavaScript ES6 (bases), PHP, WordPress (Elementor), MySQL, Figma (wireframes), VS Code.</p>
+      <div class="logi"><span>HTML5</span><span class="b">CSS3</span><span class="c">JavaScript</span><span class="d">PHP</span><span class="e">WordPress</span><span>MySQL</span><span class="b">Figma</span><span class="f">VS Code</span></div>
+    </div>
+    <div class="ibox" style="border-left-color:var(--teal)">
+      <h4 data-fr="💡 Approche" data-en="💡 Approach">💡 Approche</h4>
+      <p data-fr="Je conçois toujours le design avant le code : brief, maquette Figma, puis intégration. La cohérence visuelle et l'UX passent avant la logique technique." data-en="I always design before coding: brief, Figma mockup, then integration. Visual consistency and UX come before technical logic.">Je conçois toujours le design avant le code&nbsp;: brief, maquette Figma, puis intégration. La cohérence visuelle et l'UX passent avant la logique technique.</p>
+    </div>
+  </div>
+
+  <div class="divl">✦</div>
+
+  <!-- ═══ SOUS-PARTIE 1 : SITES WEB ═══ -->
+  <div class="subhead" id="sub-sites"><span class="subnum">01</span></div>
+  <span class="se mint" data-fr="Mes sites web" data-en="My websites">Mes sites web <span class="cbadge u" style="margin-left:8px" data-fr="Universitaire · 1re année BUT" data-en="University · 1st year BUT">Universitaire · 1re année BUT</span></span>
+  <h2 class="sh" data-fr="Trois sites, trois technologies" data-en="Three websites, three technologies">Trois sites, trois technologies</h2>
+  <p class="sp" data-fr="Site Iris (WordPress/Elementor), site Roméo & Juliette (PHP + base de données MySQL), site Cinéma Anglophone (HTML/CSS/PHP). Voir les démonstrations vidéo ci-dessous." data-en="Iris site (WordPress/Elementor), Romeo & Juliet site (PHP + MySQL database), English Cinema site (HTML/CSS/PHP). See the video demos below.">Site Iris (WordPress/Elementor), site Roméo &amp; Juliette (PHP + base de données MySQL), site Cinéma Anglophone (HTML/CSS/PHP). Voir les démonstrations vidéo ci-dessous.</p>
+  <div class="igrid">
+    <div class="sub-card">
+      <h4 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:7px" data-fr="🌸 Site Iris Innovation" data-en="🌸 Iris Innovation website">🌸 Site Iris Innovation</h4>
+      <p style="color:var(--muted);line-height:1.75" data-fr="Site institutionnel bilingue (FR/EN) conçu sous <strong>WordPress</strong> avec le constructeur <strong>Elementor</strong> pour la campagne Iris (SAÉ 202). Structure&nbsp;: page d'accueil avec hero animé, présentation de la gamme en 11 déclinaisons, page valeurs inclusives, page contact. Entièrement responsive mobile. Cohérence totale avec la charte graphique de la campagne." data-en="Bilingual institutional website (FR/EN) built with <strong>WordPress</strong> and the <strong>Elementor</strong> builder for the Iris campaign (SAÉ 202). Structure: homepage with animated hero, range presentation in 11 variants, inclusive values page, contact page. Fully mobile-responsive. Total consistency with the campaign style guide.">Site institutionnel bilingue (FR/EN) conçu sous <strong>WordPress</strong> avec le constructeur <strong>Elementor</strong> pour la campagne Iris (SAÉ 202). Structure&nbsp;: page d'accueil avec hero animé, présentation de la gamme en 11 déclinaisons, page valeurs inclusives, page contact. Entièrement responsive mobile. Cohérence totale avec la charte graphique de la campagne.</p>
+    </div>
+    <div class="sub-card">
+      <h4 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:7px" data-fr="📚 Roméo & Juliette" data-en="📚 Romeo & Juliet">📚 Roméo &amp; Juliette</h4>
+      <p style="color:var(--muted);line-height:1.75" data-fr="Site dynamique développé en <strong>PHP + MySQL</strong> permettant de naviguer dans la structure de la pièce&nbsp;: personnages, actes, scènes, répliques. Interface d'affichage dynamique avec requêtes SQL, formulaires de recherche, affichage conditionnel. Première expérience concrète avec une base de données relationnelle et la logique back-end." data-en="Dynamic website built in <strong>PHP + MySQL</strong>, allowing navigation through the play's structure: characters, acts, scenes, lines. Dynamic display interface with SQL queries, search forms, conditional display. First hands-on experience with a relational database and back-end logic.">Site dynamique développé en <strong>PHP + MySQL</strong> permettant de naviguer dans la structure de la pièce&nbsp;: personnages, actes, scènes, répliques. Interface d'affichage dynamique avec requêtes SQL, formulaires de recherche, affichage conditionnel. Première expérience concrète avec une base de données relationnelle et la logique back-end.</p>
+    </div>
+    <div class="sub-card">
+      <h4 style="font-family:var(--serif);font-size:1.1rem;margin-bottom:7px" data-fr="🎬 Cinéma Anglophone" data-en="🎬 English-Speaking Cinema">🎬 Cinéma Anglophone</h4>
+      <p style="color:var(--muted);line-height:1.75" data-fr="Site HTML/CSS/PHP de dénonciation autour du cinéma anglophone : intégration responsive, mise en page éditoriale." data-en="An HTML/CSS/PHP advocacy website about English-speaking cinema: responsive integration, editorial layout.">Site HTML/CSS/PHP de dénonciation autour du cinéma anglophone&nbsp;: intégration responsive, mise en page éditoriale.</p>
+    </div>
+  </div>
+
+  <div class="divl">✦</div>
+
+  <!-- ═══ SOUS-PARTIE 2 : DÉMOS VIDÉO ═══ -->
+  <div class="subhead" id="sub-demos"><span class="subnum">02</span></div>
+  <span class="se teal" data-fr="Démonstrations vidéo" data-en="Video demos">Démonstrations vidéo <span class="cbadge u" style="margin-left:8px" data-fr="Universitaire · 1re année BUT" data-en="University · 1st year BUT">Universitaire · 1re année BUT</span></span>
+  <h2 class="sh" data-fr="Mes sites en vidéo" data-en="My websites on video">Mes sites en vidéo</h2>
+  <p class="sp" data-fr="Screencasts montrant mes sites en fonctionnement réel. Cliquez pour lancer ; double-cliquez pour le plein écran." data-en="Screencasts showing my websites running live. Click = play · Double-click = fullscreen.">Screencasts montrant mes sites en fonctionnement réel. Cliquez pour lancer ; double-cliquez pour le plein écran.</p>
+  <div class="g3 sg">
+    <div class="media-item"><div class="vt" onclick="toggleVid(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleVid(this);event.preventDefault()}" role="button" tabindex="0" aria-label="Démo site Iris WordPress">
+      <video src="Images/vid-site-iris.mp4" preload="metadata"></video>
+      <div class="vsub sage">WordPress · Elementor</div><div class="vplay">▶</div>
+      <div class="vtit" data-fr="Site Iris Innovation ; WordPress" data-en="Iris Innovation website ; WordPress">Site Iris Innovation ; WordPress</div>
+    </div><p class="mi-cap" data-fr="Démonstration du site Iris Innovation sous WordPress/Elementor" data-en="Demo of the Iris Innovation website built with WordPress/Elementor">Démonstration du site Iris Innovation sous WordPress/Elementor</p></div>
+    <div class="media-item"><div class="vt" onclick="toggleVid(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleVid(this);event.preventDefault()}" role="button" tabindex="0" aria-label="Démo site Roméo Juliette BDD">
+      <video src="Images/vid-site-romeo.mp4" preload="metadata"></video>
+      <div class="vsub teal">PHP + MySQL BDD</div><div class="vplay">▶</div>
+      <div class="vtit" data-fr="Roméo & Juliette ; Base de données" data-en="Romeo & Juliet ; Database">Roméo &amp; Juliette ; Base de données</div>
+    </div><p class="mi-cap" data-fr="Navigation dynamique dans la pièce via PHP et une base MySQL" data-en="Dynamic navigation through the play via PHP and a MySQL database">Navigation dynamique dans la pièce via PHP et une base MySQL</p></div>
+    <div class="media-item"><div class="vt" onclick="toggleVid(this)" onkeydown="if(event.key==='Enter'||event.key===' '){toggleVid(this);event.preventDefault()}" role="button" tabindex="0" aria-label="Démo site Cinéma Anglophone">
+      <video src="Images/vid-site-cinema.mp4" preload="metadata"></video>
+      <div class="vsub lav">CSS / HTML / PHP</div><div class="vplay">▶</div>
+      <div class="vtit" data-fr="Cinéma Anglophone ; Dénonciation" data-en="English-Speaking Cinema ; Advocacy">Cinéma Anglophone ; Dénonciation</div>
+    </div><p class="mi-cap" data-fr="Site éditorial HTML/CSS/PHP sur le cinéma anglophone" data-en="HTML/CSS/PHP editorial website about English-speaking cinema">Site éditorial HTML/CSS/PHP sur le cinéma anglophone</p></div>
+  </div>
+  <p class="v-hint" data-fr="▶ Cliquez pour lire · Double-cliquez pour le plein écran" data-en="▶ Click to play · Double-click for fullscreen">▶ Cliquez pour lire · Double-cliquez pour le plein écran</p>
+  <div class="pnav">
+    <button class="pnb" onclick="go('photographie')"><span class="pnl" data-fr="Précédent" data-en="Previous">Précédent</span><span class="pnt" data-fr="← Photographie" data-en="← Photography">← Photographie</span></button>
+    <button class="pnb r" onclick="go('videos')"><span class="pnl" data-fr="Suivant" data-en="Next">Suivant</span><span class="pnt" data-fr="Vidéos →" data-en="Videos →">Vidéos →</span></button>
+  </div>
+</section>
+
+  
 <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
 <section id="contact" aria-label="Contact">
   <div>
